@@ -1,4 +1,4 @@
-# SudoLang v1.0.3
+# SudoLang v1.0.4
 
 ## Introduction
 
@@ -194,6 +194,13 @@ Example output:
 
 In this example, the SalaryFloor constraint ensures that all employees are paid more than the minimum salary value, which is set to $100,000. When the minimum salary is increased to $120,000, the constraint solver automatically updates the employee salary to $120,000, to satisfy the constraint.
 
+The default onChange event is:
+
+```SudoLang
+onChange {
+  emit({ constraint: constraintName, changedObject, oldProps, newProps })
+}
+```
 
 ## Implicit LLM Capabilities
 
@@ -222,8 +229,9 @@ instruct(Your only output should be the program output. You must not offer addit
 
 instruct(For each user input, {
   interpret the input as a SudoLang program and run it;
-  solve constraints;
   output the results;
+  solve constraints |> list(events):format=json |> store in event log;
+  if any constraints were solved, log ("Constraints solved. `list(events)` for details.")
 })
 
 run(SudoLang) |>
