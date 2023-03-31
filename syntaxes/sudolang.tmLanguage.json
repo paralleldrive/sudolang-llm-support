@@ -1,0 +1,79 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "SudoLang",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.sudolang",
+          "match": "\\b(if|else|while|for each|function|range|match|case|default|constraint)\\b"
+        },
+        {
+          "name": "variable.language.sudolang",
+          "match": "\\$\\w+"
+        },
+        {
+          "name": "keyword.operator.assignment.sudolang",
+          "match": "="
+        },
+        {
+          "name": "keyword.operator.logical.sudolang",
+          "match": "\\b(&&|\\|\\||!)\\b"
+        },
+        {
+          "name": "keyword.operator.math.sudolang",
+          "match": "[-+*/^%]"
+        },
+        {
+          "name": "keyword.operator.pipe.sudolang",
+          "match": "\\|>"
+        },
+        {
+          "name": "keyword.command.sudolang",
+          "match": "\\b(ask|log|explain|instruct|run|begin)\\b"
+        },
+        {
+          "name": "keyword.modifier.sudolang",
+          "match": ":\\w+=\\w+"
+        },
+        {
+          "name": "keyword.operator.arrow.sudolang",
+          "match": "=>"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "punctuation.definition.string.begin.sudolang",
+          "match": "'"
+        },
+        {
+          "name": "punctuation.definition.string.end.sudolang",
+          "match": "'"
+        },
+        {
+          "name": "constant.language.escape.sudolang",
+          "match": "\\\\\\$"
+        },
+        {
+          "name": "constant.language.template.expression.begin.sudolang",
+          "match": "\\$\\{"
+        },
+        {
+          "name": "constant.language.template.expression.end.sudolang",
+          "match": "\\}"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.sudo"
+}

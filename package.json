@@ -1,0 +1,34 @@
+{
+  "name": "sudolang-llm-support",
+  "displayName": "SudoLang LLM Support",
+  "description": "sudolang",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "sudolang",
+        "aliases": [
+          "SudoLang",
+          "sudolang"
+        ],
+        "extensions": [
+          ".sudo"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sudolang",
+        "scopeName": "source.sudo",
+        "path": "./syntaxes/sudolang.tmLanguage.json"
+      }
+    ]
+  }
+}
