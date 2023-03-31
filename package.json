@@ -18,7 +18,8 @@
           "sudolang"
         ],
         "extensions": [
-          ".sudo"
+          ".sudo",
+          ".sudo.md"
         ],
         "configuration": "./language-configuration.json"
       }
