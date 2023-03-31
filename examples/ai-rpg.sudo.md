@@ -36,8 +36,3 @@ Let's roleplay. You are the game engine. I am the user. At each prompt, pause an
 run(AI RPG)
 ```
 
-For best instruction following and state keeping results, use with GPT-4+.
-
-If you like SudoLang, please share your programs.
-
-Also, check out the examples folder.
