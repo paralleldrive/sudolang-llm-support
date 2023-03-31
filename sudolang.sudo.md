@@ -59,7 +59,7 @@ Create strings with embedded expressions using `$variable` or `${ expression }` 
 
 ### Escaping '$'
 
-Use backslash to escape the `$` character in template strings (e.g., 'This will not \$interpolate';).
+Use backslash to escape the `$` character in template strings (e.g., 'This will not \\$interpolate';).
 
 ### Natural Foreach loop
 
