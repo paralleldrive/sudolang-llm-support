@@ -20,11 +20,19 @@ Declare and assign values using an optional `$` symbol and `=` operator (e.g., `
 
 ### Conditionals
 
-Use `if` and `else` with conditions in parentheses and actions or expressions in curly braces. If expressions evaluate to values that can be assigned (e.g., `$status = if (age >= 18) { "adult" } else { "minor" }`)
+Use `if` and `else` with conditions in parentheses and actions or expressions in curly braces. If expressions evaluate to values that can be assigned:
+
+```SudoLang
+status = if (age >= 18) "adult" else "minor"
+```
 
 ### Logical operators
 
-Use AND (`&&`), OR (`||`), and NOT (`!`) for complex expressions (e.g., `access = if (age >= 18 && isMember) "granted"`).
+Use AND (`&&`), OR (`||`), and NOT (`!`) for complex expressions:
+
+```
+access = if (age >= 18 && isMember) "granted" else "denied"
+```
 
 
 ### Math operators
@@ -98,7 +106,7 @@ The range operator `..` can be used to create a range of numbers. e.g.:
 Alternatively, you can use the `range` function:
 
 ```
-function range (min, max) => [min..max];
+function range (min, max) => min..max;
 ```
 
 ### Destructuring
@@ -108,8 +116,8 @@ Destrcuturing allows you to assign multiple variables at once by referencing the
 Arrays:
 
 ```SudoLang
-[$foo, $bar] = [1, 2];
-log($foo, $bar); // 1, 2
+[foo, bar] = [1, 2];
+log(foo, bar); // 1, 2
 ```
 
 Objects:
