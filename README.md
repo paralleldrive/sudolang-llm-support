@@ -2,7 +2,7 @@
 
 This extension adds syntax highlighting and language support for the SudoLang programming language to VSCode.
 
-Please read the [SudoLang documentation](sudolang.md) for more information about the language.
+Please read the [SudoLang documentation](sudolang.sudo) for more information about the language.
 
 
 ## Features
