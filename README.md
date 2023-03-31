@@ -7,4 +7,4 @@ Please read the [SudoLang documentation](sudolang.sudo.md) for more information 
 
 ## Features
 
-This extension enables minimal syntax highlighting for .sudo files.
+This extension enables minimal syntax highlighting for .sudo.md files.
