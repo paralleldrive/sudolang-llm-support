@@ -63,7 +63,7 @@ Use backslash to escape the `$` character in template strings (e.g., 'This will 
 
 ### Natural Foreach loop
 
-Iterate over collections with "for each" phrase, variable, and action separated by a comma (e.g., `for each number in numbers, log(number);`).
+Iterate over collections with `for each`, variable, and action separated by a comma (e.g., `for each number, log(number);`).
 
 ### While loop
 
