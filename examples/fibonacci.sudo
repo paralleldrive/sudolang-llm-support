@@ -1,13 +1,13 @@
 # Fibonacci
 
 ```SudoLang
-// Program: Fibonacci
+// Fibonacci
 fibonacci = n => {
-  if (n <= 1) n -1
-  else fibonacci(n - 1) + fibonacci(n -2);
+  if (n <= 2) n - 1
+  else fibonacci(n - 1) + fibonacci(n - 2)
 }
 
-1..20 |> n => log(fibonacci(n))
+1..20 |> fibonacci |> log
 ```
 
 # Transpiling
@@ -21,7 +21,7 @@ Fibonacci program |> transpile(JavaScript):length=very concise
 Example output:
 
 ```JavaScript
-const fibonacci = n => n <= 1 ? n - 1 :
+const fibonacci = n => n <= 2 ? n - 1 :
   fibonacci(n - 1) + fibonacci(n - 2);
 
 for (let n = 1; n <= 20; n++) {

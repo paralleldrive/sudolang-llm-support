@@ -133,7 +133,7 @@ log(foo, bar); // 1, 2
 result = match (value) {
   case {type: "circle", radius} => "Circle with radius: $radius";
   case {type: "rectangle", width, height} =>
-    "Rectangle with dimensions: $widthx$height";
+    "Rectangle with dimensions: ${width}x${height}";
   case {type: 'triangle', base, height} => "Triangle with base $base and height $height";
   default => "Unknown shape",
 };
