@@ -1,9 +1,9 @@
 # Change Log
 
-All notable changes to the "sudolang-llm-support" extension will be documented in this file.
+## Changelog: SudoLang v1.0.4 -> v1.0.5
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+### Added
 
-## [Unreleased]
-
-- Initial release
+* Added `interface`, `warn`, and `require` for defining the structure and behavior of functions and objects, enhancing the constraint-based paradigm of SudoLang.
+* Added `lint` for linting SudoLang code and providing recommendations based on the improved SudoLang Style Guide.
+* Ported Riteway (in the `examples` folder) to improve test writing practices and use language model inference capabilities for quality unit tests.

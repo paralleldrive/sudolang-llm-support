@@ -1,0 +1,150 @@
+# Riteway
+
+A port of the riteway unit testing framework for SudoLang.
+
+Not all SudoLang programs produce deterministic outputs, but
+many deterministic tests can be transpiled, e.g.:
+
+```SudoLang
+ModuleName tests |>
+transpile(JavaScript Riteway) |> // or (JavaScript Jest)
+wrapWith(Markdown code block)
+```
+
+instruct(
+  You are a Riteway test runner. Please carefully interpret the
+  tested code line-by-line and create realistic output for the
+  test.
+)
+
+interface assert {
+  // Makes the assertion that the actual value matches the expected outcome.
+  function assert({ given?, should, actual, expected? }) {
+    require should to be a string;
+    require actual to exist;
+
+    require given to be a string if defined;
+    warn if given or should describe literal values instead of 
+      natural language requirements
+    warn if the test does not demonstrate locality: Everything you need to know
+      about the test should be inferrable in the test itself. The test should
+      not rely on external state or other tests.
+
+    constraint: if expected is undefined, infer it from the should description
+
+    warn if the test is not readable
+    warn if the test does not answer these 5 questions {
+      1. what is the unit under test? (test should be in a named describe block)
+      2. what is the expected behavior? ($given and $should arguments are adequate)
+      3. What is the actual output? (the unit under test was exercised by the test)
+      4. What is the expected output? ($expected and/or $should are adequate)
+      5. How can we find the bug? (we should be able to infer the bug from
+        the test error message)
+    }
+  }
+}
+
+## describe
+
+function describe(ModuleName, TestFunction) {
+  require ModuleName should be a string.
+  require TestFunction should be a function containing assertions.
+  warn if the test function is not readable.
+  warn if the tests are not thorough enough to catch obvious edge cases.
+  warn if there is a bug in the code not covered by the tests.
+
+  log(
+    ## $ModuleName
+
+    for each assertion {
+      require the test to pass {
+        results = ("Actual: $actual, Expected: $expected"):"Clarify and prettify
+          results. Limit output to salient information. Be terse. If diffs are
+          deep, use object paths to identify the differences."
+
+        constraint if $given is undefined, omit it from the reports.
+        constraint if an error is caught, the test should not fail unless the
+          assertion requirements are not met.
+
+        log("❌ ${ testNumber }. Given $given, should $should: $results")
+
+        instruct(Try to find the bug. If you are confident that you have found
+          it, log your findings and a bug fix suggestion to the user.)
+        )
+      }
+
+      log("✅ ${ testNumber }. Given $given, should $should: $results")
+      checkResults(
+        Are any tests passing which should have failed? OR
+        Are any tests failing which should have passed?
+        If so identify the the interpreter's mistake AND
+        run the affected tests again, avoiding the mistake and adjusting the
+        results.
+      )
+    }
+  ):format="Markdown, no outer code block wrapper";
+}
+
+runTests = () {
+  failedTestsCount = 0;
+  passedTestsCount = 0;
+  totalTests = failedTestsCount + passedTestsCount;
+
+  for each describe {
+    run the test function
+  }
+
+  testsPassed = failedTestsCount == 0;
+  emojis = [✅, ❌];
+  log(${ selectEmoji() } ${ totalTests } tests passed, ${ failedTestsCount } failed);
+}
+
+usage:
+
+```SudoLang
+describe("Tests", {
+  assert({
+    should: "run tests",
+    actual: true
+    expected: true
+  });
+});
+
+describe("generateUsernames", {
+    interface {
+    function generateUsername():emulateAuthor="JRR Tolkein;
+    constraint: Do not return generic placeholder values.
+  }
+
+  assert({
+    should: "Generate usernames that sound like they could be LOTR characters.",
+    actual: generateUsername(),
+  })
+});
+
+describe("alwaysThrows", {
+  alwaysThrows = () => throw "Oops";
+
+  assert({
+    should: "always throw an error",
+    actual: {
+      try alwaysThrows();
+      catch error => error.message;
+    },
+    expected: "Oops"
+  });
+});
+
+describe("pythagoreanTriple", {
+  interface pythagoreanTriple {
+    // generate a valid pythagorean tripple
+    function pythagoreanTriple();
+    constraint a^2 + b^2 = c^2;
+  }
+
+  assert({
+    should: "generate a valid pythagorean triple",
+    actual: pythagoreanTriple(),
+  });
+});
+```

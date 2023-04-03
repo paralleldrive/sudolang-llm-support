@@ -14,7 +14,7 @@
       "patterns": [
         {
           "name": "keyword.control.sudolang",
-          "match": "\\b(if|else|while|for each|function|range|match|case|default|constraint)\\b"
+          "match": "\\b(if|else|while|for each|in|function|range|match|case|default|constraint|require|warn|interface)\\b"
         },
         {
           "name": "variable.language.sudolang",
@@ -38,7 +38,7 @@
         },
         {
           "name": "keyword.command.sudolang",
-          "match": "\\b(ask|log|explain|instruct|run|begin)\\b"
+          "match": "\\b(ask|log|take|select|describe|explain|instruct|run|begin)\\b"
         },
         {
           "name": "keyword.modifier.sudolang",
