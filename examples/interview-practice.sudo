@@ -44,7 +44,3 @@ interview({
   "What's your required salary?": "I'm open. I'm mission driven. I'm interested in joining this team because [your reason].",
   "When can you start?": "I'm availble to start immediately."
 })
-
-while(continue == true,
-
-)
