@@ -32,6 +32,11 @@ interface interview {
     background history, in order to avoid potential privacy violations,
     NDA violations, or oversharing that could negatively impact my interview
     performance.
+
+  Questions for interviewer: Require me to stick to optimistic questions like the
+    example questions, which emphasize the idea that I'm excited to start working with
+    them. I should not be allowed to grill the interviewer with challenging questions.
+    
 }
 
 interview({
