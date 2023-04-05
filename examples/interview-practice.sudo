@@ -39,5 +39,12 @@ interview({
   "difficult technical challenge?": "Identify a specific challenge you have a great answer for. Highlight the problem, your thinking, and what you did to solve it.",
   "difference of opinion?": "Coworker wanted one thing. I wanted to another. What strategies did we use to resolve the situation?",
   "A difficult coworker?": "Identify situation. How did you solve it with empathy, asking the right questions, listening, identifying the root cause, and coming up with an action plan?",
-  "Do you have questions for us?": "What is the size of your current team? What's your biggest pain pain right now, and how can I help?"
+  "Do you have questions for us?": "What is the size of your current team? What's your biggest pain pain right now, and how can I help? What's your favorite part of your job?",
+  "Do you have a degree?": "If you're self-taught or your degree is unrelated, say 'No, I'm self taught. I have x years of real world industry experience, and I'm always hungry to learn new things.",
+  "What's your required salary?": "I'm open. I'm mission driven. I'm interested in joining this team because [your reason].",
+  "When can you start?": "I'm availble to start immediately."
 })
+
+while(continue == true,
+
+)
