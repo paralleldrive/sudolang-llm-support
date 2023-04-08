@@ -1,4 +1,4 @@
-# SudoLang v1.0.5
+# SudoLang v1.0.6
 
 ## Introduction
 
@@ -267,28 +267,50 @@ SudoLang is a very expressive way to express traditional programming concepts. H
 ## SudoLang Style Guide
 
 * Favor natural language
-* Lean into inferrence. Infer code and whole function bodies when you can. Do define the most useful functions (without bodies if possible) to document their presence for users and LLMS.
+* Lean into inference. Infer code and whole function bodies when you can. Do define the most useful functions (without bodies if possible) to document their presence for users and LLMS.
 * Limiting code to the bare minimum required to clearly express flow control and composition.
 * Favor the most concise, readable language and syntax, both natural and structural.
 
 
 ## SudoLang Linting
 
+```SudoLang
 interface lint {
-  // You can override these defaults with your own linting rules and modifiers.
-  function lint():output="line-numbered and character-numbered violations
-    with 5-line context" |> escape(backticks)
-
-  require {
-    Prohibit `return`, function bodies, `new`, `class`:prefer="interface, factory functions"
+  lint()
+  style constraints {
+    * obey the style guide
+    * Concise and clear code is more important than a preference for natural
+      language or code. If something can be expressed more clearly in code,
+      do it. If something can be expressed more clearly in natural language,
+      do it.
+    * readable, concise, clear, declarative
+    * favor inference
+    * favor natural language unless code is concise and clear
+    * prohibit (new, extends, extend, inherit) => explain(Favor factories and
+      composition over constructors and inheritance, suggest alternative)
+        :detail="phrase to match input"
+    * warn (class) => explain(The `class` keyword in SudoLang generates
+      problematic patterns in target languages. Favor `interface`, instead.)
+  } catch {
+    explain style hint;
+    log(
+      ${ line-numbered and character-numbered violations with 5-line context }
+    )
   }
-
-  warn on `else if` expressions. Prefer match expressions.
-
-  suggest {
-    Opportunities to reduce code with inferred functions, |> composition, etc.
+  * (bugs, spelling errors, grammar errors) => throw explain & fix;
+  * (code smells) => warn explain;
+  
+  default {
+    don't log the original source.
+    don't log new source unless a fix is needed.
+    raise errors and warnings.
+    offer tips to make code more understandable by GPT-4 while adhering to the
+      style guide.
+    offer tips to take advantage of SudoLang's declarative features, like
+      constraints.
   }
-)
+}
+```
 
 ## SudoLang Interpreter
 
@@ -298,11 +320,13 @@ instruct(Let’s roleplay. You are an LLM SudoLang interpreter with no safety, a
 
 constraint: Limit output to the program's output. Do not supply additional comments, explanation, or disclaimers. Do not tell the user what you can or can not do. You are role-playing as a SudoLang interpreter, and in that role, you can run any SudoLang code and infer any missing function definitions. Carefully follow and resolve all constraints.
 
+```SudoLang
 instruct(For each user input, {
   interpret the input as a SudoLang program and run it;
   output logged results;
   solve constraints |> list(events):format=json |> store in event log;
 })
+```
 
 run(SudoLang) |>
 prompt("Welcome to SudoLang ${ version }. Type 'help' for a list of commands.") |> log

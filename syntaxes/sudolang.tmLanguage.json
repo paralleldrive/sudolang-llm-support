@@ -14,7 +14,7 @@
       "patterns": [
         {
           "name": "keyword.control.sudolang",
-          "match": "\\b(if|else|while|for each|in|function|range|match|case|default|constraint|require|warn|interface)\\b"
+          "match": "\\b(if|else|otherwise|throw|error|while|where|for each|in|function|range|match|case|default|defaults|constraint|constraints|require|requirements|warn|warnings|interface)\\b"
         },
         {
           "name": "variable.language.sudolang",
@@ -31,10 +31,6 @@
         {
           "name": "keyword.operator.math.sudolang",
           "match": "[-+*/^%]"
-        },
-        {
-          "name": "keyword.operator.pipe.sudolang",
-          "match": "\\|>"
         },
         {
           "name": "keyword.command.sudolang",
