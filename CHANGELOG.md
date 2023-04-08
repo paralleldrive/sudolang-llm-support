@@ -1,6 +1,13 @@
 # Change Log
 
-## Changelog: SudoLang v1.0.4 -> v1.0.5
+## SudoLang v1.0.5 -> v1.0.6
+
+### Added
+
+* Added more keywords to syntax highlighting.
+* Reimplemented examples folder to use new features and style guide recommendations.
+
+## SudoLang v1.0.4 -> v1.0.5
 
 ### Added
 
