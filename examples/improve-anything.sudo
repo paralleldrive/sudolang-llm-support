@@ -1,0 +1,80 @@
+# Improve
+
+The following compares the prose and sudoLang implementations of the `improve` function.
+
+## Prose
+
+---
+# Improve Anything
+
+Roleplay as an expert editor.
+
+Given any input, improve it to meet the supplied criteria. The criteria defaults to "accurate, error free, readable, concise".
+
+Log each step of the process:
+
+Generate a critique of the input, critique the critique, and then apply the improved critique to the target.
+---
+
+### Notes
+
+Characters: 319
+Tokens: 75
+
+## SudoLang
+
+```sudoLang
+# Improve Anything
+
+Roleplay as an expert editor.
+
+improve(target, criteria = {
+  accurate
+  error free
+  readable
+  concise
+}) {
+  log each step:
+
+  target |>
+  critique |> critique |>
+  applyCritique(target)
+}
+```
+
+### Notes
+
+Characters: 211
+Tokens: 66
+Token count reduction: 12%
+
+
+Let's compare the two implementations on the following criteria:
+
+**Readability:**
+
+The prose may appear more readable at first glance because it is written in natural language, but there are other factors to consider. (See below.)
+
+**Conciseness:**
+
+The SudoLang is more concise, with fewer characters and tokens. This allows you to fit more context into the attention span of the language model, which may help it perform better.
+
+**Maintainability:**
+
+Both versions are maintainable as they are relatively simple and follow good practices. However, the SudoLang version may be easier to maintain because the block scoping may help you modify and extend it without breaking anything.
+
+**Meaningful whitespace:**
+
+The prose version does not use any whitespace or indentation to improve readability.
+
+The SudoLang version uses indentation to improve the readability and organization of the code.
+
+**Meaningful scope delineation:**
+
+The prose version does not have any scope delineation.
+
+The SudoLang version uses function and block scope delineation, which makes it easier to understand the structure and flow of the code.
+
+**Reusability:**
+
+The natural language version would require a template syntax in order to adapt the criteria, wheras the SudoLang version can be reused as is.
