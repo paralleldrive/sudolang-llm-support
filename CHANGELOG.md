@@ -1,5 +1,18 @@
 # Change Log
 
+## SudoLang v1.0.6 -> v1.0.7
+
+### Added
+
+* Added documentation for cap and cup operators.
+* Added documentation for /commands.
+* Updated RPG Game example to showcase new features and best practices.
+* Introduced CodeBot, an AI assistant for writing unit tests and code.
+* Added Improve Anything, an example that demonstrates iterative code improvement.
+* Implemented Music Recommender, an example that suggests music based on user preferences.
+* Created PromptCrafter, a tool for building midjourney prompts.
+* Developed StudyBot, an AI-powered learning tool featuring vocabulary, flashcard game, and Q&A functionalities.
+
 ## SudoLang v1.0.5 -> v1.0.6
 
 ### Added
