@@ -1,0 +1,66 @@
+# Improve
+
+The following compares the prose and sudoLang implementations of the `improve` function.
+
+## Prose
+
+Given any input, improve it to meet the supplied criteria. It defaults to "accurate, error free, readable, concise".
+
+The LLM will generate a critique of the input, recursively critique its own critique to improve it, and then apply the improved critique to the target.
+
+Log each step of the process.
+
+### Notes
+
+Characters: 355
+Tokens: 82
+
+## SudoLang
+
+```sudoLang
+improve(target, criteria = {
+  accurate
+  error free
+  readable
+  concise
+}) {
+  target |>
+  critique |> while critiqueNeedsImprovement: improveCritique |>
+  applyCritique(target).
+
+  log each step.
+}
+```
+
+### Notes
+
+Characters: 200
+Tokens: 61
+Token count reduction: 25%
+
+
+Let's compare the two implementations on the following criteria:
+
+**Readability:**
+
+The prose may appear more readable at first glance because it is written in natural language, but there are other factors to consider. (See below.)
+
+**Conciseness:**
+
+The SudoLang is more concise, with fewer characters and tokens. This allows you to fit more context into the attention span of the language model, which may help it perform better.
+
+**Maintainability:**
+
+Both versions are maintainable as they are relatively simple and follow good practices. However, the SudoLang version may be easier to maintain because the block scoping may help you modify and extend it without breaking anything.
+
+**Meaningful whitespace:**
+
+The prose version does not use any whitespace or indentation to improve readability.
+
+The SudoLang version uses indentation to improve the readability and organization of the code.
+
+**Meaningful scope delineation:**
+
+The prose version does not have any scope delineation.
+
+The SudoLang version uses function and block scope delineation, which makes it easier to understand the structure and flow of the code.
