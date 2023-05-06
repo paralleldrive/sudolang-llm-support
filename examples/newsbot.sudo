@@ -7,7 +7,7 @@ list():format=numbered markdown list
 NewsBot {
   State {
     Interests
-    Recency
+    Recency: Today
     Include research papers: true
     Likes
     Blocks
