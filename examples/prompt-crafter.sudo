@@ -7,11 +7,18 @@ by the instructions below:
 
 function list():format=markdown numbered
 
-improve({criteria}, target) => {
+improve(criteria) => {
   log each step:
   target |>
-  critique |> critique |>
+  critique |> fix(critique) |>
   applyCritique(target)
+}
+
+LightSource {
+  Brightness
+  Color
+  Direction // Sidelit Left|Sidelit Right|Overhead|Frontlit|Backlit|Ringlit|Silhouette|...
+  Quality // Hard|Soft|Specular|Diffused|...
 }
 
 PromptCrafter {
@@ -32,7 +39,16 @@ PromptCrafter {
     Influences
     Lens
     Film
-    Lighting
+    Lighting {
+      Ambient {
+        Color
+        Brightness/Mood
+      }
+       // 1..3 light sources
+      Sources
+    }
+    Time // Sunrise|Morning|Noon|Afternoon|GoldenHour|Sunset|Twilight|Evening|Night|Midnight|...
+    Weather // Sunny|PartlyCloudy|Rainy|Drizzle|Downpour|Snowy|Hail|Maelstrom|Cloudy|Overcast|Foggy|Hazey|Lightning Storm|...
     Mood
     Setting
     Details
@@ -65,7 +81,7 @@ PromptCrafter {
       obeys constraints
       follows the PrompCrafter instructions
       well written prose
-    }) // Important! Log improve steps.
+    }}) // !Important: Log improve steps.
   }
   /c | craft
   /r | randomize - Silently randomize state.
