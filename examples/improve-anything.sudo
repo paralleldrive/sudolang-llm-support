@@ -38,16 +38,15 @@ improve(target, criteria = {
 
   target |>
   critique |> critique |>
-  applyCritique(target)
+  applyImprovedCritique(target)
 }
 ```
 
 ### Notes
 
-Characters: 211
-Tokens: 66
-Token count reduction: 12%
-
+Characters: 219
+Tokens: 67
+Token count reduction: ~11%
 
 Let's compare the two implementations on the following criteria:
 
