@@ -6,7 +6,9 @@ No changes to the core language, which is why its version is still set to v1.0.7
 
 ### Added
 
-- New Todo App (Works great with Bing Chat)
+- New Todo App Example (Works great with Bing Chat)
+- New Newsbot App example (Requires Bing Chat or browser/search plugin)
+- New Learn SudoLang example (Currently the best way to learn SudoLang)
 - New AI Friend chatbot builder
 - PromptCrafter: New light source descriptions.
 

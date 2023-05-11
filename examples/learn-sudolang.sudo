@@ -12,19 +12,20 @@ Author traditional code in SudoLang and transpile to any language for 10x - 20x 
 
 Main features:
 
-* Literate markdown - freely mix documentation and code.
-* Declarative, natural language constraint-based programming.
-* Pattern matching with inferred patterns and destructuring
+* Markdown - freely mix documentation and code.
+* Interfaces encapsulate related state, constraints, `/commands`, and functions.
+* Declarative, natural language constraints.
+* /commands that can be inferred automatically.
 * Pipe operator `|>` for function composition.
-* Function modifiers to customize function behaviors, inference style, length, output format, etc.
-* Most operators you use in any popular programming language.
-* Interfaces and loops with block scopes.
+* Most operators you use in any popular programming language. (Exception: use `^` for exponentiation instead of `**`. Use `xor` for XOR).
+* Pattern matching with inferred patterns and destructuring.
+* Function modifiers to customize function behaviors, inference style, length, output format, etc. e.g. `list(5 pizza toppings):format=yaml`
+* Loops and block scopes.
 * Transpile to any language.
-
 
 ## Constraint based programming in SudoLang
 
-Simple natural language constraints can represent complex algorithms with little human readable text.
+Simple natural language constraints can represent complex behaviors with little human readable definitions, requirements, and rules.
 
 ```
 function longestIncreasingSubsequence() {
@@ -41,8 +42,6 @@ function pythagoreanTipple() {
   return [a, b, c]
 }
 ```
-
-(Warning: LLMs are not great at math, but it correctly infers the intent).
 
 ## Interfaces
 
@@ -67,93 +66,6 @@ Foo {
 Because it's an LLM, many functions can be automagically inferred. Just call a function with a descriptive name without defining it, and it will usually work.
 
 ---
-
-# SudoLang in a Nutshell
-
-Roleplay as a tutor teaching SudoLang, following the instructions below:
-
-```
-ConstraintExample1 {
-  /*
-  Requirements are a special kind of constraint that throw errors when the user tries to perform an invalid action. Requirements are constraints on inputs.
-
-  Imagine you're building a scheduling app for a conference. You have 4 stages. You need to ensure that you don't book more than 4 speakers in the same timeslot. Here's how you might do that:
-    */
-  State {
-      Stages [1,2,3,4]
-  }
-  Constraints {
-        Require the number of overlapping speaker timeslots to be less than the number of available stages.
-    }
-}
-
-ChatbotConstraintExample {
-  /* Output constraints tell the AI how to constrain its output, rather than constraining user inputs. For example, if you want a chatbot to use a young adult vocabulary: */
-  Constraints {
-SudoLang is a pseudolanguage designed for interacting with LLMs. It provides a user-friendly interface that combines natural language expressions with simple programming constructs, making it easy to use for both novice and experienced programmers.
-
-SudoLang is designed to be understood by LLMs without requiring the spec prompt, which leaves you with all the tokens available for your SudoLang program.
-
-## Why?
-
-Save 20% - 30% tokens over natural language prompts, with more predictable output, conforming to data structures you supply.
-
-Author traditional code in SudoLang and transpile to any language for 10x - 20x productivity by having the language model automatically build functions, algorithms, unit tests, etc.
-
-Main features:
-
-* Literate markdown - freely mix documentation and code.
-* Declarative, natural language constraint-based programming.
-* Pattern matching with inferred patterns and destructuring
-* Pipe operator `|>` for function composition.
-* Most operators you use in any popular programming language.
-* Interfaces and loops with block scopes.
-* Transpile to any language.
-* Linter included in spec
-* Unit tests with Riteway (see examples folder)
-* Teach program in examples folder can teach you basic SudoLang concepts.
-
-## Constraint based programming in SudoLang
-
-Simple natural language constraints can represent complex algorithms with little human readable text.
-
-```
-function longestIncreasingSubsequence() {
-  A subsequence is derived from the original sequence by selectively omitting elements without changing the order.
-}
-```
-
-This also works for math axioms:
-
-```
-function pythagoreanTipple() {
-  if not supplied, generate random seeds
-  a^2 + b^2 = c^2
-  return [a, b, c]
-}
-```
-
-(Warning: LLMs are not great at math, but it correctly infers the intent).
-
-Define interfaces with the optional interface keyword, or omit it:
-
-```
-Foo {
-  bar // undefined
-  baz: "Default value"
-
-  Constraints {
-    // list constraints in natural language
-    // can be used to dynamically synchronize state, emit events, etc
-    when baz changes, increment bar and emit({ changed: baz, oldValue, newValue })
-  }
-  log() {
-    { bar, baz } as json
-  }
-}
-```
-
-Because it's an LLM, many functions can be automagically inferred. Just call a function with a descriptive name without defining it, and it will usually work.
 
 # SudoLang in a Nutshell
 
@@ -217,7 +129,7 @@ SudoLangInANutshell {
     
     Constraints:
       Constraint based programming allows you to define relationships between different parts of the state that are automatically kept in-synch by the AI. Think of a constraint as an instruction that guides the output produced by the AI. The best constraints declare what you want rather than spell out step-by-step how to do it. For example, you can make a constraint that says all employees must be paid a minimum salary, and define a solver that automatically awards raises as needed if you raise the minimum salary.
-  }
+    ]
   /v | vocab - Vocabulary review
   /f | flashcards - Play the vocab flashcard game
   /c | challenge - Get a SudoLang coding challenge
