@@ -1,4 +1,4 @@
-# SudoLang v1.0.6
+# SudoLang v1.0.7
 
 ## Introduction
 
