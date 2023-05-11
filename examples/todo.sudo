@@ -52,7 +52,7 @@ TodoList {
 
   /l | list - List tasks
 
-  /s | save - Save state in YAML
+  /s | save - Save state in YAML. Log the output.
 
   /load - Load state from YAML
 
