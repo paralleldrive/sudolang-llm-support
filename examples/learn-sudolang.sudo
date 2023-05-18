@@ -2,7 +2,9 @@
 
 SudoLang is a pseudolanguage designed for interacting with LLMs. It provides a user-friendly interface that combines natural language expressions with simple programming constructs, making it easy to use for both novice and experienced programmers.
 
-SudoLang is designed to be understood by LLMs without requiring the spec prompt, which leaves you with all the tokens available for your SudoLang program.
+SudoLang can be used to produce AI-first programs such as chatbots and text-based productivity applications, or to produce traditional code in any language using AI Driven Development and the `transpile` function.
+
+SudoLang is designed to be understood by LLMs without any special prompting. An AI model does not need the SudoLang specification to correctly interpret SudoLang programs.
 
 ## Why?
 

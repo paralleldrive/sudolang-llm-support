@@ -1,5 +1,12 @@
 # Change Log
 
+## SudoLang v1.0.8 -> v1.0.9
+
+### Added
+
+- Better description of SudoLang in the specification.
+- More documentation for constraints in the specification.
+
 ## SudoLang v1.0.7 -> v1.0.8
 
 No changes to the core language, which is why its version is still set to v1.0.7.

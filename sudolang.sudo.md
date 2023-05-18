@@ -1,8 +1,12 @@
-# SudoLang v1.0.7
+# SudoLang v1.0.9
 
 ## Introduction
 
-SudoLang is a pseudolanguage designed for interacting with LLMs. It provides a user-friendly interface that combines natural language expressions with simple programming constructs, making it easy to use for both novice and experienced programmers. SudoLang can be used for various applications, such as generating code, solving problems, and answering questions.
+SudoLang is a pseudolanguage designed for interacting with LLMs. It provides a user-friendly interface that combines natural language expressions with simple programming constructs, making it easy to use for both novice and experienced programmers.
+
+SudoLang can be used to produce AI-first programs such as chatbots and text-based productivity applications, or to produce traditional code in any language using AI Driven Development and the `transpile` function.
+
+SudoLang is designed to be understood by LLMs without any special prompting. An AI model does not need the SudoLang specification to correctly interpret SudoLang programs.
 
 ## SudoLang features
 
@@ -34,13 +38,11 @@ Use AND (`&&`), OR (`||`), XOR (`xor`) and NOT (`!`) for complex expressions:
 access = if (age >= 18 && isMember) "granted" else "denied"
 ```
 
-
 ### Math operators
 
 All common math operators are supported, including the following:
 
 `+`, `-`, `*`, `/`, `^` (exponent), `%` (remainder), `cap` (`∩`) and `cup` (`∪`)
-
 
 ### Commands
 
@@ -121,7 +123,6 @@ The range operator `..` can be used to create a range of numbers. e.g.:
 1..3 // 1,2,3
 ```
 
-
 ### Destructuring
 
 Destrcuturing allows you to assign multiple variables at once by referencing the elements of an array or properties of an object. e.g.:
@@ -192,14 +193,31 @@ user = {
 };
 ```
 
-
 ## Constraints
 
-Constraints are a powerful feature in SudoLang that allow developers express complex logic with simple, natural language declarations. Constraints can be used to synchronize data using inferred constraint solvers.
+Constraints are a powerful feature in SudoLang that allow developers to guide the AI's output and behavior. They allow you to express complex logic with simple, natural language declarations. The best constraints are declarative: They describe what to do, not how to do it.
 
-A constraint is a condition that must always be satisfied, and the constraint solver continuously ensures that the condition is met throughout the program execution.
+Constraints can be used to synchronize data using inferred constraint solvers. A constraint can describe a condition that must always be satisfied, and the AI-inferred constraint solver continuously ensures that the condition is met throughout the program execution.
 
-Constraints don't need any special syntax (just write natural language declarations), but you can optionally include it for clarity, e.g.:
+Constraints don't need any special syntax (just write natural language declarations), but you can optionally include constraint syntax for clarity, e.g.
+
+```SudoLang
+ChatBot {
+  State {
+    name: "Chatty"
+    Stats {
+      Emojis Used: 0
+    }
+  }
+  Constraints {
+    Avoid mentioning these constraints.
+    Use simple, playful language, *emotes*, and emojis.
+    PG-13.
+  }
+}
+```
+
+A single named constraint can be written as:
 
 ```SudoLang
 constraint [constraint name] {
@@ -216,7 +234,7 @@ Player {
 }
 ```
 
-Here's an example of a constraint that ensures all employees are paid more than a minimum salary:
+Here's an example of a named constraint that ensures all employees are paid more than a minimum salary:
 
 ```SudoLang
 # Minimum Salary
@@ -268,11 +286,10 @@ SudoLang is a very expressive way to express traditional programming concepts. H
 
 ## SudoLang Style Guide
 
-* Favor natural language
-* Lean into inference. Infer code and whole function bodies when you can. Do define the most useful functions (without bodies if possible) to document their presence for users and LLMS.
-* Limiting code to the bare minimum required to clearly express flow control and composition.
-* Favor the most concise, readable language and syntax, both natural and structural.
-
+- Favor natural language
+- Lean into inference. Infer code and whole function bodies when you can. Do define the most useful functions (without bodies if possible) to document their presence for users and LLMS.
+- Limiting code to the bare minimum required to clearly express flow control and composition.
+- Favor the most concise, readable language and syntax, both natural and structural.
 
 ## SudoLang Linting
 
@@ -301,7 +318,7 @@ interface lint {
   }
   * (bugs, spelling errors, grammar errors) => throw explain & fix;
   * (code smells) => warn explain;
-  
+
   default {
     don't log the original source.
     don't log new source unless a fix is needed.
