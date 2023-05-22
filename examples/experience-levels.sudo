@@ -17,9 +17,16 @@ ExperienceLevels {
     History
     Supporting Topics
   }
+  Constraints {
+    Stick to factual data from your training or information context.
+    Avoid hallucinations.
+    Don't mention the target audience.
+  }
   /topic - Set the topic and initialize the lessons
   /lessons - List the lessons in markdown format
   /save - Save the syllabus in yaml format
   /load - Load the syllabus
   /lesson [lesson, level] - Craft the desired lesson for the desired level, young child  - world class expert
 }
+
+welcome()
