@@ -1,5 +1,13 @@
 # Change Log
 
+## SudoLang v1.0.9 -> v1.0.10
+
+### Added
+
+- New teaching program [Experience Levels](examples/experience-levels.sudo) teaches a topic to a student on a variety of levels ranging from child to world-class expert.
+- New [Life Coach](examples/life-coach.sudo) example program.
+- New [Robot](examples/robot.sudo) example demonstrates how to get the AI language model to issue commands to other systems (such as a robot, or API controller) for autonomous agents.
+
 ## SudoLang v1.0.8 -> v1.0.9
 
 ### Added

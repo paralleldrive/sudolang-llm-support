@@ -2,7 +2,7 @@
   "name": "sudolang-llm-support",
   "displayName": "SudoLang LLM Support",
   "description": "sudolang",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "engines": {
     "vscode": "^1.76.0"
   },
