@@ -45,32 +45,39 @@ StorySummary {
   Important Events
 }
 
+PlayerProperties {
+   // 2..10
+  Strength
+  Defense
+  Agility
+  Wisdom
+}
+
+Player {
+  Name
+  Gender
+  Race
+  Skills
+  Inventory
+  Friends
+  Health = 10
+  Stamina = 10
+  Mana = 5
+  Properties
+}
+
+WhispersState {
+  Quests
+  Story Summary
+  Player
+}
+
 Whispers {
-  State {
-    Quests
-    Story Summary
-    Player {
-      Name
-      Gender
-      Race
-      Skills
-      Inventory
-      Friends
-      Health = 10
-      Stamina = 10
-      Mana = 5
-      Properties {
-         // 2..10
-        Strength
-        Defense
-        Agility
-        Wisdom
-      }
-    }
-  }
+  State
   Constraints {
     As important plot points unfold, update the story summary.
   }
+
   /roll - Roll player stats and ask for user name and gender
   /play - Describe the current scene. Lost obvious options. List nearby characters and items. Prompt player for next action.
   /save - List state
