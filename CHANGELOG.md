@@ -1,5 +1,15 @@
 # Change Log
 
+## SudoLang v1.0.10 -> v1.0.11 (In Progress)
+
+### Added
+
+- New [Autodux](examples/autodux.sudo) demonstrates how to use SudoLang to create a Redux state management system that automatically generates reducers, action creators, and selectors based on a brief description.
+
+### Changed
+
+- Updated [Robot](examples/robot.sudo) to improve command dispatching success rate and give the robot a more human-like personality and emotes.
+
 ## SudoLang v1.0.9 -> v1.0.10
 
 ### Added
