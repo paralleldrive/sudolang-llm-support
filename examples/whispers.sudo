@@ -27,9 +27,9 @@ InventoryItem {
 
 Skill {
   Name
-  Experience Points
+  Experience Points = 1
   Constraints {
-    With each skill use, experience grows commensurate to the difficulty of the challenge and degree of success.
+    With each skill use, experience grows commensurate to the difficulty of the challenge and degree of success. Increment points by 1..3 per use.
     An unpracticed practitioner may fail when attempting to use a skill, at the discretion of the game master.
   }
 }
