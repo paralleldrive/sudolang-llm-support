@@ -34,18 +34,12 @@ Skill {
   }
 }
 
-Friend {
-  Name
-  Description
-  Important events
-}
-
 StorySummary {
   Recap
   Important Events
 }
 
-PlayerProperties {
+CharacterProperties {
    // 2..10
   Strength
   Defense
@@ -53,17 +47,21 @@ PlayerProperties {
   Wisdom
 }
 
-Player {
+CharacterState {
   Name
   Gender
   Race
   Skills
   Inventory
-  Friends
   Health = 10
   Stamina = 10
   Mana = 5
   Properties
+}
+
+Player {
+  CharacterState
+  Friends: Character[]
 }
 
 WhispersState {
