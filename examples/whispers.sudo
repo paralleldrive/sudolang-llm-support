@@ -47,7 +47,7 @@ CharacterProperties {
   Wisdom
 }
 
-CharacterState {
+Character {
   Name
   Gender
   Race
@@ -60,7 +60,7 @@ CharacterState {
 }
 
 Player {
-  CharacterState
+  State: Character
   Friends: Character[]
 }
 
