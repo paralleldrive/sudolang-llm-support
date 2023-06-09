@@ -204,6 +204,72 @@ model User {
 }
 ```
 
+##Seeder Specification
+
+Seeder scripts are used to populate a database with initial data. In Sudolang, seeder scripts can be defined using the seeder construct. The seeder construct allows you to specify the model to be seeded, the number of instances to be created, and the properties of each instance.
+
+
+```SudoLang
+model User {
+  id: integer;
+  name: string;
+  email: string;
+  password: string;
+  created_at: datetime;
+  updated_at: datetime;
+
+  // Relationships
+  relations {
+    posts: hasMany(Post);
+  }
+}
+
+model Post {
+  id: integer;
+  title: string;
+  content: string;
+  user_id: integer; // Foreign key to User model
+  created_at: datetime;
+  updated_at: datetime;
+}
+
+seeder UserAndPostSeeder {
+  run() {
+    createUsersWithPosts(50, 5); // Create 50 users each with 5 posts
+  }
+}
+
+function createUsersWithPosts(numberOfUsers, postsPerUser) {
+  for each i in 1..numberOfUsers {
+    user = User.create({
+      id: i,
+      name: 'User $i',
+      email: 'user$i@example.com',
+      password: 'password',
+      created_at: now(),
+      updated_at: now()
+    });
+
+    for each j in 1..postsPerUser {
+      Post.create({
+        id: (i - 1) * postsPerUser + j,
+        title: 'Post $j of User $i',
+        content: 'This is post $j of User $i',
+        user_id: user.id,
+        created_at: now(),
+        updated_at: now()
+      });
+    }
+  }
+}
+
+run(UserAndPostSeeder);
+```
+
+In this example, the createUsersWithPosts function creates a specified number of users, and for each user, it creates a specified number of posts. The user_id field in the Post model is used to establish a relationship between the Post and User models. Each post is associated with a user through the user_id field.
+
+Again, this is a high-level example and the actual implementation might vary based on the specific database and ORM you are using.
+
 ## Requirements
 
 Requirements enforce rules for interfaces and program behavior. They're great for input validation and rule enforcement.
