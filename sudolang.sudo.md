@@ -157,6 +157,53 @@ result = match (value) {
 
 Interfaces are a powerful feature in SudoLang that allow developers to define the structure of their data and logic. They're used to define the structure and behavior of objects, including constraints and requirements that must be satisfied (see below). The `interface` keyword is optional.
 
+## Models
+
+Models are a programming construct for generating database specifications for both relational and non-relational database libraries. The types used in the `model` programming construct resemble the types defined in the SQL specification, but a user can also freely insert requirements, warnings, constraints, and natural language prompts / inferences into the `model` object and have them converted into their syntactical equivalents in the target SQL, NoSQL, or ORM dialect.
+
+```SudoLang
+model User {
+  id: integer;
+  name: string;
+  email: string;
+  password: string;
+  created_at: datetime;
+  updated_at: datetime;
+
+  // Relationships
+  relations {
+    posts: hasMany(Post);
+    profile: hasOne(Profile
+
+);
+    group: belongsTo(Group);
+  }
+
+  // Requirements
+  require {
+    id must be unique;
+    email must be unique;
+  }
+
+  // Constraints
+  constraint {
+    created_at is automatically set to the current date and time when a record is created;
+    updated_at is automatically updated to the current date and time whenever the record is updated;
+  }
+
+  // Procedures
+  procedure {
+    When creating a new user, hash the password before storing it in the database;
+    When updating a user's password, hash the new password before storing it in the database;
+  }
+
+  // Warnings
+  warn {
+    email should be validated before being stored in the database;
+  }
+}
+```
+
 ## Requirements
 
 Requirements enforce rules for interfaces and program behavior. They're great for input validation and rule enforcement.
@@ -328,7 +375,6 @@ interface lint {
     offer tips to take advantage of SudoLang's declarative features, like
       constraints.
   }
-}
 ```
 
 ## SudoLang Interpreter
