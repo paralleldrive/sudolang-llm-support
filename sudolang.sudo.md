@@ -125,7 +125,7 @@ The range operator `..` can be used to create a range of numbers. e.g.:
 
 ### Destructuring
 
-Destrcuturing allows you to assign multiple variables at once by referencing the elements of an array or properties of an object. e.g.:
+Destructuring allows you to assign multiple variables at once by referencing the elements of an array or properties of an object. e.g.:
 
 Arrays:
 
@@ -204,7 +204,7 @@ model User {
 }
 ```
 
-##Seeder Specification
+## Seeders
 
 Seeder scripts are used to populate a database with initial data. In Sudolang, seeder scripts can be defined using the seeder construct. The seeder construct allows you to specify the model to be seeded, the number of instances to be created, and the properties of each instance.
 
