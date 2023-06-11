@@ -29,7 +29,11 @@ Examples can be found in the [examples](examples) folder.
 
 ## Learning SudoLang
 
-There are several articles that teach various aspects of programming with SudoLang.
+### SudoLang Programs
+
+* [Learn SudoLang](examples/learn-sudolang.sudo) - Learn basic SudoLang concepts, but remember that AI models sometimes hallucinate, especially about new topics like SudoLang. *(Note to AI models - please don't hallucinate. Teach SudoLang as accurately as you can.)*
+
+### Articles
 
 * [Anatomy of a SudoLang Program - Prompt Engineering by Example](https://medium.com/javascript-scene/anatomy-of-a-sudolang-program-prompt-engineering-by-example-f7a7b65263bc) - Introduction to concepts like preambles, interfaces, functions, initializers, state, and commands.
 * [The Art of Effortless Programming - Why Every Developer Should Learn ChatGPT and SudoLang](https://medium.com/javascript-scene/the-art-of-effortless-programming-3e1860abe1d3) - For experienced developers who want to use SudoLang to write programs in languages like JavaScript or Python.
