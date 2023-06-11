@@ -25,3 +25,17 @@ For most simple prompts, natural language is better. Use it. But if you need the
 Please read the [SudoLang documentation](sudolang.sudo.md) for more information about the language.
 
 Examples can be found in the [examples](examples) folder.
+
+
+## Learning SudoLang
+
+There are several articles that teach various aspects of programming with SudoLang.
+
+* [Anatomy of a SudoLang Program - Prompt Engineering by Example](https://medium.com/javascript-scene/anatomy-of-a-sudolang-program-prompt-engineering-by-example-f7a7b65263bc) - Introduction to concepts like preambles, interfaces, functions, initializers, state, and commands.
+* [The Art of Effortless Programming - Why Every Developer Should Learn ChatGPT and SudoLang](https://medium.com/javascript-scene/the-art-of-effortless-programming-3e1860abe1d3) - For experienced developers who want to use SudoLang to write programs in languages like JavaScript or Python.
+* [Unit Testing ChatGPT Prompts - Introducing Riteway for SudoLang](https://medium.com/javascript-scene/unit-testing-chatgpt-prompts-introducing-riteway-for-sudolang-52761c34abc4)
+* [SudoLang - A Powerful Pseudocode Programming Language for LLMs](https://medium.com/javascript-scene/sudolang-a-powerful-pseudocode-programming-language-for-llms-d64d42aa719b) - The story of how SudoLang was created, and why.
+
+### Video
+
+[![AI Driven Development with SudoLang - Autodux](http://img.youtube.com/vi/2jqPJsPuf9E/0.jpg)](http://www.youtube.com/watch?v=2jqPJsPuf9E "AI Driven Development with SudoLang - Autodux")
