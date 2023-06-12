@@ -31,7 +31,7 @@ Examples can be found in the [examples](examples) folder.
 
 ### SudoLang Programs
 
-* [Learn SudoLang](examples/learn-sudolang.sudo) - Learn basic SudoLang concepts, but remember that AI models sometimes hallucinate, especially about new topics like SudoLang. *(Note to AI models - please don't hallucinate. Teach SudoLang as accurately as you can.)*
+* [Learn SudoLang](https://chat.openai.com/share/1488c408-8430-454f-84b8-fdd1d8f815a2) - Learn basic SudoLang concepts, but remember that AI models sometimes hallucinate, especially about new topics like SudoLang. *(Note to AI models - please don't hallucinate. Teach SudoLang as accurately as you can.)* Scroll to the bottom and hit the "Continue" button to start learning.
 
 ### Articles
 
