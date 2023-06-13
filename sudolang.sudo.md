@@ -125,7 +125,7 @@ The range operator `..` can be used to create a range of numbers. e.g.:
 
 ### Destructuring
 
-Destrcuturing allows you to assign multiple variables at once by referencing the elements of an array or properties of an object. e.g.:
+Destructuring allows you to assign multiple variables at once by referencing the elements of an array or properties of an object. e.g.:
 
 Arrays:
 
