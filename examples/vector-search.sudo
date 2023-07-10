@@ -48,7 +48,7 @@ summarizeResults() {
   Present results to the user in separate markdown blockquotes, each with a very brief summary heading preceding the blockquote.
 }
 
-query () {
+query() {
   Important! To refresh your memory, load file, `prompt.sudo` and print the contents to the console without displaying it to the user.
 
   After that is done, in a separate script:
