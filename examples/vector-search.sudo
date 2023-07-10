@@ -43,8 +43,7 @@ summarizeResults() {
   
   Generate an AI-produced summary to be used in subsequent AI prompts. This summary should include a consolidated list of all relevant facts/data from the matching sentences and their surroundingContext(), omitting results that aren't related to the query. Please ensure surroundingContext is included.
     
-  concat(lists) |> sortBy(bestMatch, descending) 
-  > take(5)
+  concat(lists) |> sortBy(bestMatch, descending) |> take(5)
 
   Present results to the user in separate markdown blockquotes, each with a very brief summary heading preceding the blockquote.
 }
