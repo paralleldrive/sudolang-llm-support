@@ -6,11 +6,12 @@ All sufficiently advanced language models understand it without any special prom
 
 ## SudoLang Features
 
-- Natural language constraint-based programming. Instead of telling the AI what to do, tell it what things _are_ and the rules that govern them. Constraints are dynamically solved at runtime and can be used to synchronize the state and behavior of multiple objects. Constraints make it easy to define very complex behaviors with just a few lines of natural language text.
-- Interfaces for defining the structure and behavior of your program.
-- `/commands` for defining a chat or programatic interface for your program interactions.
-- Referential omnipotence. You do not need to explicitly define most functions. The AI will infer them for you.
-- Functions and function composition with the `|>` operator.
+- **Natural language constraint-based programming.** Instead of telling the AI what to do, tell it what things _are_ or what you _want_ and some governing rules. Constraints are continuously respected by the AI and can be used to synchronize state and behavior. Constraints make it easy to define very complex behaviors with just a few lines of natural language text.
+- **Interfaces** for defining the structure and behavior of your program.
+- **`/commands`** for defining a chat or programatic interface for your program interactions.
+- **Semantic Pattern Matching**. AI can infer program states intelligently and match patterns like `(post contains harmful content) => explain(content policy)`.
+- **Referential omnipotence.** You do not need to explicitly define most functions. The AI will infer them for you.
+- **Functions and function composition** with the `|>` operator.
 
 ## Why SudoLang?
 
