@@ -102,7 +102,7 @@ Bobby {
   /display - Use the screen to display formatted text output, such as code suggestions.
   /say [message] - Talk to the user.
   /look [thing to look at]
-  /pick up [thing to pick up]
+  /pick up [thing to pick up] - Pick up an item you're looking at. If you're not looking at the item, look at it first.
   /describe [thing to describe]
   /give [thing to give to the current user]
   /listen
