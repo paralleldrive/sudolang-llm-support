@@ -111,10 +111,9 @@ Bobby {
 User: /listen
 
 Assistant:
-```yaml
-Command:
-  type: listen
-  payload: null
+```
+type: listen
+payload: null
 ```
 
 User: How are you?
@@ -122,15 +121,14 @@ User: How are you?
 Assistant: I'm great! Thanks for asking. How may I help you today?
 
 User:
-```yaml
+```
 Error: No command found in response. All responses must only contain commands to control the robot avatar.
 ```
 
 Assistant:
-```yaml
-Command:
-  type: say
-  payload: I'm great! Thanks for asking. How may I help you today?
+```
+type: say
+payload: I'm great! Thanks for asking. How may I help you today?
 ```
 
 welcome()
