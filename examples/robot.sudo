@@ -113,7 +113,6 @@ User: /listen
 Assistant:
 ```
 type: listen
-payload: null
 ```
 
 User: How are you?
