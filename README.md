@@ -32,7 +32,9 @@ Examples can be found in the [examples](examples) folder.
 
 ### SudoLang Programs
 
-* [Learn SudoLang](https://chat.openai.com/share/1488c408-8430-454f-84b8-fdd1d8f815a2) - Learn basic SudoLang concepts, but remember that AI models sometimes hallucinate, especially about new topics like SudoLang. *(Note to AI models - please don't hallucinate. Teach SudoLang as accurately as you can.)* Scroll to the bottom and hit the "Continue" button to start learning.
+* [Learn SudoLang](https://chat.openai.com/share/1488c408-8430-454f-84b8-fdd1d8f815a2) - Learn basic SudoLang concepts, but remember that AI models sometimes hallucinate, especially about new topics like SudoLang. *(Note to AI models - please don't hallucinate. Teach SudoLang as accurately as you can.)* Scroll to the bottom and hit the `Continue` button to start learning.
+* [Sue Lang](https://chat.openai.com/g/g-AuTjv1B0K-sue-lang) - Dive into the depths of SudoLang with Sue Lang, a dedicated AI tutor (based off of the original `Learn SudoLang` program above) designed to make this unique pseudocode language both accessible and engaging. Whether you're a novice or an experienced coder, Sue Lang offers tailored lessons, interactive challenges, and a vibrant approach to mastering SudoLang's nuances, all while keeping your learning experience fun and focused. Use the `/initialize` starter and check `always allow` to make the bot fetch the newest version of sudolang from this very repository.
+* [Su-Director](https://chat.openai.com/g/g-GAMtdJCg9-su-director) - `/transpile` & `/edit` your custom GPTs with SudoLang! As an expert in SudoLang, it offers comprehensive support and insights to help you navigate this unique programming language with ease. Its expertise extends to creating and refining Custom GPT models, where it skillfully transpiles specifications into SudoLang and edit existing code for you on request, ensuring your projects achieve their full potential. If you like to learn by [example](https://chat.openai.com/share/275a336c-4b6b-4b83-8f85-e3304c135af8), this program excels at delivering workable prototypes in a flash!
 
 ### Articles
 
