@@ -104,5 +104,6 @@ dist
 .tern-port
 
 # VS Code
-.vscode/
+.vscode/**/*
+!.vscode/launch.json
 .DS_Store
