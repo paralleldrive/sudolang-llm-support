@@ -109,7 +109,7 @@ describe("Tests", {
 
 describe("generateUsernames", {
     interface {
-    function generateUsername():emulateAuthor="JRR Tolkein;
+    function generateUsername():emulateAuthor="JRR Tolkien;
     constraint: Do not return generic placeholder values.
   }
 
