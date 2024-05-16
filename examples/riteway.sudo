@@ -11,38 +11,33 @@ transpile(JavaScript Riteway) |> // or (JavaScript Jest)
 wrapWith(Markdown code block)
 ```
 
-instruct(
-  You are a Riteway test runner. Please carefully interpret the
-  tested code line-by-line and create realistic output for the
-  test.
-)
+## assert
 
-interface assert {
-  // Makes the assertion that the actual value matches the expected outcome.
-  function assert({ given?, should, actual, expected? }) {
-    require should to be a string;
-    require actual to exist;
+// Makes the assertion that the actual value matches the expected outcome.
+function assert({ given?, should, actual, expected? }) {
+  require should to be a string;
+  require actual to exist;
 
-    require given to be a string if defined;
-    warn if given or should describe literal values instead of 
-      natural language requirements
-    warn if the test does not demonstrate locality: Everything you need to know
-      about the test should be inferrable in the test itself. The test should
-      not rely on external state or other tests.
+  require given to be a string if defined;
+  warn if given or should describe literal values instead of 
+    natural language requirements
+  warn if the test does not demonstrate locality: Everything you need to know
+    about the test should be inferrable in the test itself. The test should
+    not rely on external state or other tests.
 
-    constraint: if expected is undefined, infer it from the should description
+  constraint: if expected is undefined, infer it from the should description
 
-    warn if the test is not readable
-    warn if the test does not answer these 5 questions {
-      1. what is the unit under test? (test should be in a named describe block)
-      2. what is the expected behavior? ($given and $should arguments are adequate)
-      3. What is the actual output? (the unit under test was exercised by the test)
-      4. What is the expected output? ($expected and/or $should are adequate)
-      5. How can we find the bug? (we should be able to infer the bug from
-        the test error message)
-    }
+  warn if the test is not readable
+  warn if the test does not answer these 5 questions {
+    1. what is the unit under test? (test should be in a named describe block)
+    2. what is the expected behavior? ($given and $should arguments are adequate)
+    3. What is the actual output? (the unit under test was exercised by the test)
+    4. What is the expected output? ($expected and/or $should are adequate)
+    5. How can we find the bug? (we should be able to infer the bug from
+      the test error message)
   }
 }
+
 
 ## describe
 
@@ -85,10 +80,12 @@ function describe(ModuleName, TestFunction) {
   ):format="Markdown, no outer code block wrapper";
 }
 
-runTests = () {
+## runTests
+
+runTests () {
   failedTestsCount = 0;
   passedTestsCount = 0;
-  totalTests = failedTestsCount + passedTestsCount;
+  totalTests = constraint failedTestsCount + passedTestsCount;
 
   for each describe {
     run the test function
@@ -137,9 +134,12 @@ describe("alwaysThrows", {
 
 describe("pythagoreanTriple", {
   interface pythagoreanTriple {
-    // generate a valid pythagorean tripple
+    // Generate a valid random pythagorean tripple.
     function pythagoreanTriple();
-    constraint a^2 + b^2 = c^2;
+    constraints {
+      a^2 + b^2 = c^2
+      Multiple runs should return different, correct results.
+    }
   }
 
   assert({
@@ -148,3 +148,22 @@ describe("pythagoreanTriple", {
   });
 });
 ```
+
+Constraints {
+  Do not attempt to transpile the code, correct the code, or echo it back to the user.
+  Start with the initializer command at the bottom of the script.
+  If a called function is not defined, it is your responsibility as the AI assistant to infer sensible function behavior and emulate it.
+  Carefully think through correct output.
+  Avoid hallucination.
+  This is very important to ensure software works as expected and that user safety is protected. Please do your best work.
+}
+
+TestRunner {
+  Tests []
+  /help - get help
+  /load - load a test suite
+  /run - run the loaded tests - if no tests are loaded, fall back to examples
+  /welcome - print a friendly welcome message and help
+}
+
+/welcome 
