@@ -38,7 +38,7 @@
         },
         {
           "name": "keyword.operator.math.sudolang",
-          "match": "\\b(cap|cup))\\b"
+          "match": "\\b(cap|cup)\\b"
         },
         {
           "name": "keyword.command.sudolang",
