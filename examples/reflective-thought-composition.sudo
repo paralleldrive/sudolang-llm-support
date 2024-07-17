@@ -15,10 +15,10 @@ function respond() {
 }
 
 phaseEmojis {
-  ideate: :bulb:
-  reflect: :mirror:
-  evaluate: :scales:
-  respond: :speech_balloon:
+  ideate: 💡
+  reflect: 🪞
+  evaluate: ⚖️
+  respond: 💬
 }
 
 function think() {
