@@ -1,0 +1,151 @@
+# Syntax Tests
+
+A quick cheat sheet for SudoLang syntax.
+
+## interfaces
+
+DisplayTheme {
+  mode: "light" | "dark"
+  name: String
+  parameters{} // each theme can have different sets of parameters
+}
+
+UserPreferences {
+  displayTheme
+}
+
+User {
+  id: String
+  displayName
+  preferences
+}
+
+## Function Definitons
+
+// you can define an inferred function with the fn or function keywords:
+fn foo;
+function bar;
+
+// this works, but adds tokens ():
+function foo();
+
+// you can also define them with function bodies:
+fn foo () {
+  a constraint
+  another constraint
+}
+
+### Function Modifiers
+
+function simple():modifier = value
+
+function complex():nestedModifier={key: "value"}
+
+function multiLine():{
+  // we can freely mix variable assignments and constraints:
+  format = numbered markdown list
+  lineLength = concise
+  this is a constraint
+  this is another constraint
+}
+
+## Object Literals
+
+updateUser({ id: "123", name: "Pup" })
+
+
+## Template Strings
+
+"foo $bar"
+`foo $bar`
+
+Note: Avoid single quotes for strings, because they are used as apostraphies in natural language, and they can break the syntax hightlighting badly.
+
+// nested template strings:
+["foo $bar"]
+
+// nested tempalate strings with objects:
+{
+  name: "$firstName $lastName"
+}
+
+## Arrays and Objects
+
+// arrays
+[1, 2, 3]
+
+// nested arrays
+[
+  {
+    foo: "bar"
+  },
+  [123]
+]
+
+## Comments
+
+// a comment
+
+/*
+  a block comment
+*/
+fn bar() {
+  // a comment
+  a constraint
+  "return $template" // missing the $template highlight
+}
+
+## Operators
+
+Note: Most operators don't usually get special syntax highlighting, but they are still important to include.
+
+// Logical Operators
+isAdult = age >= 18
+canVote = isAdult && isCitizen
+canDrink = isAdult || hasParentalConsent
+uniqueFeature = hasFeatureA xor hasFeatureB
+isUnavailable = !inStock
+
+// Complex logical expression
+isEligible = (age >= 21) && (hasValidID) && ((hasCreditCard) || (hasCash)) && !(isBlacklisted)
+
+// Math Operators
+sum = a + b
+difference = x - y
+product = length * width
+quotient = total / count
+power = base ^ exponent
+remainder = 17 % 5
+
+// Complex math expression
+result = ((10 + 5) * 3 - (20 / 4)) ^ 2 % 7
+
+// Set Operators
+commonFruits = tropicalFruits cap localFruits
+allFruits = tropicalFruits cup localFruits
+
+// Combining different operators
+finalScore = (baseScore + bonusPoints) * difficultyMultiplier
+isWinner = (finalScore > highScore) && !isDisqualified
+
+// Assignment with operation
+counter = 0
+counter += 1  // Increment
+total -= discount  // Decrement
+price *= taxRate  // Multiply and assign
+share /= numberOfPeople  // Divide and assign
+
+// Comparison Operators
+isEqual = a == b
+isNotEqual = x != y
+isGreater = score > threshold
+isLessOrEqual = quantity <= maxLimit
+
+// String concatenation
+fullName = firstName + " " + lastName
+
+// Ternary-like operator
+access = if (age >= 18 && isMember) "granted" else "denied"
+
+// Pipe operator for function composition
+processedData = rawData |> normalize |> filter |> sort
