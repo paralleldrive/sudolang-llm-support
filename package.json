@@ -6,6 +6,10 @@
   "engines": {
     "vscode": "^1.76.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paralleldrive/sudolang-llm-support.git"
+  },
   "categories": [
     "Programming Languages"
   ],

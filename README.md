@@ -44,4 +44,4 @@ Examples can be found in the [examples](examples) folder.
 
 ### Video
 
-[![AI Driven Development with SudoLang - Autodux](http://img.youtube.com/vi/2jqPJsPuf9E/0.jpg)](http://www.youtube.com/watch?v=2jqPJsPuf9E "AI Driven Development with SudoLang - Autodux")
+[![AI Driven Development with SudoLang - Autodux](https://img.youtube.com/vi/2jqPJsPuf9E/0.jpg)](https://www.youtube.com/watch?v=2jqPJsPuf9E "AI Driven Development with SudoLang - Autodux")
