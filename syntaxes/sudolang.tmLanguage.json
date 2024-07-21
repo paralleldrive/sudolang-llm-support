@@ -30,10 +30,10 @@
       "patterns": [
         {
           "name": "keyword.control.sudolang",
-          "match": "\\b(if|else|otherwise|throw|error|while|loop|where|for each|in|function|fn|range|match|case|default|defaults|constraint|constraints|require|requirements|warn|warnings|interface)\\b"
+          "match": "\\b(ask|case|concat|convert|constraint|constraints|contains|continue|count|default|defaults|describe|else|emit|empty|error|escape|every|exists|explain|filter|find|first|flatMap|flatten|for each|function|fn|groupBy|if|in|includes|interface|interpolate|join|list|log|loop|map|match|max|merge|min|normalize|orderBy|otherwise|pick|pluck|range|replace|require|requirements|reverse|revise|select|skip|slice|some|sort|sortBy|split|take|takeLast|takeLatest|takeUntil|takeWhile|throw|transpile|trim|unique|warn|warnings|where|while|wrap|zip)\\b"
         },
         {
-          "name": "keyword.control.sudolang",
+          "name": "keyword.commands.sudolang",
           "match": "\\b/[a-zA-Z0-9]+\\b"
         },
         {
@@ -41,28 +41,8 @@
           "match": "\\$\\w+"
         },
         {
-          "name": "keyword.operator.assignment.sudolang",
-          "match": "="
-        },
-        {
-          "name": "keyword.operator.logical.sudolang",
-          "match": "\\b(&&|\\|\\||!|xor)\\b"
-        },
-        {
-          "name": "keyword.operator.math.sudolang",
-          "match": "[-+*/^%]"
-        },
-        {
-          "name": "keyword.operator.math.sudolang",
-          "match": "\\b(cap|cup)\\b"
-        },
-        {
-          "name": "keyword.command.sudolang",
-          "match": "\\b(ask|log|take|select|describe|explain|instruct|run|begin)\\b"
-        },
-        {
-          "name": "keyword.operator.arrow.sudolang",
-          "match": "=>"
+          "name": "keyword.operator.sudolang",
+          "match": "&&|\\|\\||!|\\bxor\\b|==|!=|>|<|>=|<=|=|\\+=|-=|\\*=|/=|\\+|-|\\*|/|%|\\^|\\bcap\\b|\\bcup\\b|\\|>|\\?|:"
         }
       ]
     },
@@ -104,21 +84,52 @@
       "patterns": [
         {
           "name": "comment.line.double-slash.sudolang",
-          "match": "//.*$"
+          "match": "(//).*$\\n?",
+          "captures": {
+            "1": { "name": "punctuation.definition.comment.sudolang" }
+          }
         },
         {
           "name": "comment.block.sudolang",
           "begin": "/\\*",
-          "end": "\\*/"
+          "end": "\\*/",
+          "captures": {
+            "0": { "name": "punctuation.definition.comment.sudolang" }
+          }
         }
       ]
     },
     "functions": {
       "patterns": [
         {
-          "name": "entity.name.function.sudolang",
-          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\("
+          "name": "meta.function.sudolang",
+          "begin": "\\b(function|fn)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()?",
+          "beginCaptures": {
+            "1": { "name": "storage.type.function.sudolang" },
+            "2": { "name": "entity.name.function.sudolang" },
+            "3": { "name": "punctuation.definition.parameters.begin.sudolang" }
+          },
+          "end": "(?<=\\})|(?<=\\))|$",
+          "patterns": [
+            { "include": "#function-parameters" },
+            { "include": "#function-body" }
+          ]
         }
+      ]
+    },
+    "function-parameters": {
+      "begin": "\\(",
+      "end": "\\)",
+      "patterns": [
+        { "include": "#expressions" }
+      ]
+    },
+    "function-body": {
+      "begin": "\\{",
+      "end": "\\}",
+      "patterns": [
+        { "include": "#comments" },
+        { "include": "#expressions" }
       ]
     },
     "variables": {
@@ -165,12 +176,13 @@
     },
     "expressions": {
       "patterns": [
+        { "include": "#comments" },
         { "include": "#strings" },
         {
-          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)\\s*",
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=|\\+=|-=|\\*=|/=)\\s*",
           "captures": {
             "1": { "name": "variable.other.assignment.sudolang" },
-            "2": { "name": "keyword.operator.assignment.sudolang" }
+            "2": { "name": "keyword.operator.sudolang" }
           }
         },
         {
