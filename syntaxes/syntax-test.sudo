@@ -21,20 +21,35 @@ User {
   preferences
 }
 
+
+## Constraints
+
+constraint: can be specified inline or in block form
+
+Constraints {
+  A constraint
+  Another constraint
+}
+
+
 ## Function Definitons
 
 // You can define an inferred function with the `fn` or `function` keywords:
+fn foo();
+function bar();
 
-fn foo;
-function bar;
+// You can also define them with function bodies:
+fn foo() {
+  Constraints {
+    a constraint
+  }
+  for each (foo) bar()
+  while (!done) work()
+}
 
-// this works, but adds tokens ():
-function foo();
-
-// you can also define them with function bodies:
-fn foo () {
-  a constraint
-  another constraint
+// Functions with blocks can omit the fn or function keyword:
+anotherFunction() {
+  require user to be signed in
 }
 
 
@@ -156,11 +171,19 @@ isNotEqual = x != y
 isGreater = score > threshold
 isLessOrEqual = quantity <= maxLimit
 
-// String concatenation
-fullName = firstName + " " + lastName
-
-// Ternary-like operator
+// Ternary if/else
 access = if (age >= 18 && isMember) "granted" else "denied"
 
 // Pipe operator for function composition
 processedData = rawData |> normalize |> filter |> sort
+
+
+## Disallowed Keywords
+
+Should generate a warning for disallowed keywords.
+
+class Foo extends Bar {
+  constructor() {
+    super()
+  }
+}
