@@ -21,7 +21,6 @@ User {
   preferences
 }
 
-
 ## Constraints
 
 constraint: can be specified inline or in block form

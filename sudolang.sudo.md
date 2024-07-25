@@ -10,12 +10,14 @@ SudoLang is designed to be understood by LLMs without any special prompting. **A
 
 ## SudoLang Features
 
+- **Interface oriented programming** for defining the structure and behavior of your program. Interfaces are typed, but types can often be inferred. Interfaces are modular, reusable and composable.
 - **Natural language constraint-based programming.** Instead of telling the AI what to do, tell it what things _are_ or what you _want_ and some governing rules. Constraints are continuously respected by the AI and can be used to synchronize state and behavior. Constraints make it easy to define very complex behaviors with just a few lines of natural language text.
-- **Interfaces** for defining the structure and behavior of your program. Interfaces are typed, but types can often be inferred. Interfaces are modular, reusable and composable.
+- **Functions and function composition** with the `|>` operator.
+- **Markdown support** - Markdown is very useful for preambles, lists, and documentation.
 - **`/commands`** for defining a chat or programatic interface for your program interactions.
 - **Semantic Pattern Matching**. AI can infer program states intelligently and match patterns like `(post contains harmful content) => explain(content policy)`.
 - **Referential omnipotence.** You do not need to explicitly define most functions. The AI will infer them for you.
-- **Functions and function composition** with the `|>` operator.
+
 
 ### Markdown
 
