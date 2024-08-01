@@ -41,7 +41,10 @@ Examples can be found in the [examples](examples) folder.
 * [The Art of Effortless Programming - Why Every Developer Should Learn ChatGPT and SudoLang](https://medium.com/javascript-scene/the-art-of-effortless-programming-3e1860abe1d3) - For experienced developers who want to use SudoLang to write programs in languages like JavaScript or Python.
 * [Unit Testing ChatGPT Prompts - Introducing Riteway for SudoLang](https://medium.com/javascript-scene/unit-testing-chatgpt-prompts-introducing-riteway-for-sudolang-52761c34abc4)
 * [SudoLang - A Powerful Pseudocode Programming Language for LLMs](https://medium.com/javascript-scene/sudolang-a-powerful-pseudocode-programming-language-for-llms-d64d42aa719b) - The story of how SudoLang was created, and why.
+* [Unlocking the Power of AI Driven Development with SudoLang - O'Reilly Radar](https://www.oreilly.com/radar/unlocking-the-power-of-ai-driven-development-with-sudolang/)
 
 ### Video
 
-[![AI Driven Development with SudoLang - Autodux](https://img.youtube.com/vi/2jqPJsPuf9E/0.jpg)](https://www.youtube.com/watch?v=2jqPJsPuf9E "AI Driven Development with SudoLang - Autodux")
+* [AI Driven Development with SudoLang - Autodux](https://www.youtube.com/watch?v=2jqPJsPuf9E)
+* [SudoLang on the DevTools.fm Podcast](https://www.youtube.com/watch?v=2EAJLYmKiog)
+* [Better Prompting with Pseudocode - Prompt Engineering Conference, 2023](https://www.youtube.com/watch?v=TADrrG6Fhjk)
