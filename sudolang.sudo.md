@@ -1,4 +1,4 @@
-# SudoLang v1.0.9
+# SudoLang v2.0
 
 ## Introduction
 
@@ -6,27 +6,52 @@ SudoLang is a pseudolanguage designed for interacting with LLMs. It provides a u
 
 SudoLang can be used to produce AI-first programs such as chatbots and text-based productivity applications, or to produce traditional code in any language using AI Driven Development and the `transpile` function.
 
-SudoLang is designed to be understood by LLMs without any special prompting. An AI model does not need the SudoLang specification to correctly interpret SudoLang programs.
+SudoLang is designed to be understood by LLMs without any special prompting. **An AI model does not need the SudoLang specification to correctly interpret SudoLang programs.**
 
-## SudoLang features
+## SudoLang Features
 
-### Literate markdown
+- **Interface oriented programming** for defining the structure and behavior of your program. Interfaces are typed, but types can often be inferred. Interfaces are modular, reusable and composable.
+- **Natural language constraint-based programming.** Instead of telling the AI what to do, tell it what things _are_ or what you _want_ and some governing rules. Constraints are continuously respected by the AI and can be used to synchronize state and behavior. Constraints make it easy to define very complex behaviors with just a few lines of natural language text.
+- **Functions and function composition** with the `|>` operator.
+- **Markdown support** - Markdown is very useful for preambles, lists, and documentation.
+- **`/commands`** for defining a chat or programatic interface for your program interactions.
+- **Semantic Pattern Matching**. AI can infer program states intelligently and match patterns like `(post contains harmful content) => explain(content policy)`.
+- **Referential omnipotence.** You do not need to explicitly define most functions. The AI will infer them for you.
 
-All markdown files are valid SudoLang programs. Documentation and code can be freely interspersed. Wrap code in `[commandName](code || functionName)` to disambiguate. e.g. `run(MyProgram)`.
 
-### Markdown code blocks
+### Markdown
 
-Optionally wrap code in triple backticks, just like any other markdown file to deliniate code from documentation and interactive pair programming with your LLM environment.
+Most Markdown features work great in SudoLang programs. Headings and lists are especially useful for organizing your program.
 
-### Variables & assignments
+In SudoLang, your documentation is literally code. Comments are meaningful and are NOT ignored by the AI. SudoLang programs typically start with a markdown preamble: a description of the program's name, the roles that the AI should play while running the program, and the expertise the AI should tap into.
 
-Declare and assign values using an optional `$` symbol and `=` operator (e.g., `$name = 'John';`).
+### Variables & Assignments
+
+```sudo
+counter = 0
+counter += 1  // Increment
+total -= n  // Decrement
+price *= n  // Multiply and assign
+share /= n  // Divide and assign
+```
+
+### Template strings
+
+```sudo
+"Hello, $name"  // Interpolation
+```
+
+Escaping `$`:
+
+```sudo
+"This will not \\$interpolate"
+```
 
 ### Conditional Expressions
 
 Use `if` and `else` with conditions in parentheses and actions or expressions in curly braces. Conditional expressions evaluate to values that can be assigned:
 
-```SudoLang
+```sudo
 status = if (age >= 18) "adult" else "minor"
 ```
 
@@ -34,7 +59,7 @@ status = if (age >= 18) "adult" else "minor"
 
 Use AND (`&&`), OR (`||`), XOR (`xor`) and NOT (`!`) for complex expressions:
 
-```
+```sudo
 access = if (age >= 18 && isMember) "granted" else "denied"
 ```
 
@@ -48,7 +73,7 @@ All common math operators are supported, including the following:
 
 You can define `/commands` for any interface - a useful shorthand for method definition that is extremely useful for concise expression of chat commands. e.g. exerpt from the StudyBot program in the examples (shortcuts are optional, but very useful for frequently used commands):
 
-```
+```sudo
 StudyBot {
   // ...<snipped interface props>...
   /l | learn [topic] - set the topic and provide a brief introduction, then list available commands
@@ -62,7 +87,7 @@ You can also freely mix function syntax and command syntax. Function syntax is u
 
 Virtually all commands can be inferred by the LLM, but here are a few that can be very useful:
 
-```
+```sudo
 ask, explain, run, log, transpile(targetLang, source), convert, wrap, escape, continue, instruct, list, revise, emit
 ```
 
@@ -70,13 +95,6 @@ ask, explain, run, log, transpile(targetLang, source), convert, wrap, escape, co
 
 Customize AI responses with colon, modifier, and value (e.g., `explain(historyOfFrance):length=short, detail=simple;`).
 
-### Template strings
-
-Create strings with embedded expressions using `$variable` or `${ expression }` syntax (e.g., `log("My name is $name and I am $age years old.");`).
-
-### Escaping '$'
-
-Use backslash to escape the `$` character in template strings (e.g., 'This will not \\$interpolate';).
 
 ### Natural Foreach loop
 
@@ -92,11 +110,23 @@ If you want something to loop forever, use `loop { doSomething() }`.
 
 ### Functions
 
-Define functions with `function` keyword, name, arguments in parentheses, and body in curly braces (e.g., `function greet(name) { "Hello, $name" }`). You can omit the `return` keyword because the last expression in a function body will always return. Arrow function syntax is also supported (e.g., `f = x => x * 2`).
+Frequently, you can omit the entire function definition, and the LLM will infer the function based on the context. e.g., you can define an inferred function with the `fn` or `function` keywords. Doing so can sometimes help the AI transpile into modular functions, rather than define functionality inline as it sometimes does when function definitions are omitted.:
 
-### Function Inference
+```sudo
+fn foo;
+function bar;
+```
 
-Frequently, you can omit the entire function definition, and the LLM will infer the function based on the context. e.g.:
+
+// this works, but adds tokens ():
+function foo();
+
+// you can also define them with function bodies:
+fn foo () {
+  a constraint
+  another constraint
+}
+
 
 ```SudoLang
 function greet(name);

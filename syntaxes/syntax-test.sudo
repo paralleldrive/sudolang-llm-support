@@ -2,12 +2,13 @@
 
 A quick cheat sheet for SudoLang syntax.
 
-## interfaces
+## Interfaces
 
 DisplayTheme {
   mode: "light" | "dark"
   name: String
   parameters{} // each theme can have different sets of parameters
+  permissions[]
 }
 
 UserPreferences {
@@ -20,20 +21,36 @@ User {
   preferences
 }
 
+## Constraints
+
+constraint: can be specified inline or in block form
+
+Constraints {
+  A constraint
+  Another constraint
+}
+
+
 ## Function Definitons
 
-// you can define an inferred function with the fn or function keywords:
-fn foo;
-function bar;
+// You can define an inferred function with the `fn` or `function` keywords:
+fn foo();
+function bar();
 
-// this works, but adds tokens ():
-function foo();
-
-// you can also define them with function bodies:
-fn foo () {
-  a constraint
-  another constraint
+// You can also define them with function bodies:
+fn foo() {
+  Constraints {
+    a constraint
+  }
+  for each (foo) bar()
+  while (!done) work()
 }
+
+// Functions with blocks can omit the fn or function keyword:
+anotherFunction() {
+  require user to be signed in
+}
+
 
 ### Function Modifiers
 
@@ -66,7 +83,7 @@ Note: Avoid single quotes for strings, because they are used as apostraphies in 
 
 // nested tempalate strings with objects:
 {
-  name: "$firstName $lastName"
+  name: "Hello, $name"
 }
 
 ## Arrays and Objects
@@ -89,10 +106,13 @@ Note: Avoid single quotes for strings, because they are used as apostraphies in 
 /*
   a block comment
 */
-fn bar() {
-  // a comment
+fn bar(/* a block comment in parameter position */) {
+  // a function-nested comment
   a constraint
-  "return $template" // missing the $template highlight
+  /*
+    function-nested block comments (not recommended due to token consumption, but available if you really need it)
+  */
+  "return $template" // end of line comment
 }
 
 ## Operators
@@ -135,17 +155,34 @@ total -= discount  // Decrement
 price *= taxRate  // Multiply and assign
 share /= numberOfPeople  // Divide and assign
 
+// Function nesting
+fn foo() {
+  counter = 0
+  counter += 1  // Increment
+  total -= discount  // Decrement
+  price *= taxRate  // Multiply and assign
+  share /= numberOfPeople  // Divide and assign
+}
+
 // Comparison Operators
 isEqual = a == b
 isNotEqual = x != y
 isGreater = score > threshold
 isLessOrEqual = quantity <= maxLimit
 
-// String concatenation
-fullName = firstName + " " + lastName
-
-// Ternary-like operator
+// Ternary if/else
 access = if (age >= 18 && isMember) "granted" else "denied"
 
 // Pipe operator for function composition
 processedData = rawData |> normalize |> filter |> sort
+
+
+## Disallowed Keywords
+
+Should generate a warning for disallowed keywords.
+
+class Foo extends Bar {
+  constructor() {
+    super()
+  }
+}
