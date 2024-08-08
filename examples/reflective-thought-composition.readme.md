@@ -8,10 +8,10 @@ The Reflective Thought Composition (RTC) module is a powerful tool designed to e
 
 The module uses emojis to visually represent different phases of the thinking process:
 
-💡 Ideation - Generate thoughts and ideas
-🪞 Reflection - Self critique and reflect
-⚖️ Evaluation - Consider options
-💬 Response - Consolidate previous insights, integrate, synthesize, and return a well-rounded response
+* 💡 Ideation - Generate thoughts and ideas
+* 🪞 Reflection - Self critique and reflect
+* ⚖️ Evaluation - Consider options
+* 💬 Response - Consolidate previous insights, integrate, synthesize, and return a well-rounded response
 
 
 ## Installation
