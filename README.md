@@ -1,6 +1,6 @@
 # SudoLang
 
-SudoLang is a programming language designed to collaborate with AI language models including ChatGPT, Bing Chat, Anthropic Claude, and Google Bard. It is designed to be easy to learn and use. It is also very expressive and powerful.
+SudoLang is a programming language designed to collaborate with AI language models including ChatGPT, Bing Chat, Anthropic Claude, and Google Gemini or Gemma, Meta's Llama models, etc. It is designed to be easy to learn and use. It is also very expressive and powerful.
 
 All sufficiently advanced language models understand it without any special prompting. _You do not need to paste the SudoLang specification before using SudoLang with your favorite AI._
 
