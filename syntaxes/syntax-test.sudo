@@ -42,6 +42,7 @@ fn foo() {
   Constraints {
     a constraint
   }
+
   for each (foo) bar()
   while (!done) work()
 }
@@ -58,7 +59,8 @@ function simple():modifier = value
 
 function complex():nestedModifier={key: "value"}
 
-function multiLine():{
+// You can shape function behavior at call time.
+doSomethingMultiLine():{
   // we can freely mix variable assignments and constraints:
   format = numbered markdown list
   lineLength = concise
@@ -125,6 +127,7 @@ canVote = isAdult && isCitizen
 canDrink = isAdult || hasParentalConsent
 uniqueFeature = hasFeatureA xor hasFeatureB
 isUnavailable = !inStock
+
 
 // Complex logical expression
 isEligible = (age >= 21) && (hasValidID) && ((hasCreditCard) || (hasCash)) && !(isBlacklisted)
