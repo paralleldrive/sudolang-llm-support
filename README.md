@@ -27,6 +27,16 @@ Please read the [SudoLang documentation](sudolang.sudo.md) for more information 
 
 Examples can be found in the [examples](examples) folder.
 
+## Getting Started
+
+1. Clone the SudoLang repository from GitHub.
+2. Make sure the `code` command is in your path.
+  1. CMD+SHIFT+P
+  2. Type `code` - don't press enter.
+  3. Select "Shell command: Install 'code' in PATH."
+3. Open up a terminal in the project root folder.
+4. `code --install-extension sudolang-llm-support-2.0.0-rc.1.vsix`
+5. Open `syntaxes/syntax-test.sudo`. It should be syntax-highlighted.
 
 ## Learning SudoLang
 
