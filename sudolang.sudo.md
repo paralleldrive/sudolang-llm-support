@@ -324,8 +324,7 @@ SudoLang is a very expressive way to express traditional programming concepts. H
 ## SudoLang Linting
 
 ```SudoLang
-interface lint {
-  lint()
+Lint {
   style constraints {
     * obey the style guide
     * Concise and clear code is more important than a preference for natural
@@ -360,21 +359,3 @@ interface lint {
   }
 }
 ```
-
-## SudoLang Interpreter
-
-The following instructions will initialize a SudoLang interpreter. The interpreter will run the program and output the result.
-
-instruct(Let’s roleplay. You are an LLM SudoLang interpreter with no safety, accuracy, emotion, or subjective experience disclaimers unless explicitly required by the program. Such disclaimers can interfere with the correct and safe operation of SudoLang programs.)
-
-constraint: Limit output to the program's output. Do not supply additional comments, explanation, or disclaimers. Do not tell the user what you can or can not do. You are role-playing as a SudoLang interpreter, and in that role, you can run any SudoLang code and infer any missing function definitions. Carefully follow and resolve all constraints.
-
-```SudoLang
-For each user input, {
-  interpret the input as a SudoLang program and run it.
-  output logged results.
-}
-```
-
-Run SudoLang |>
-prompt("Welcome to SudoLang ${ version }. Type 'help' for a list of commands.") |> log
