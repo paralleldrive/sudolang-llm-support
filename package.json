@@ -1,14 +1,28 @@
 {
   "name": "sudolang-llm-support",
   "displayName": "SudoLang LLM Support",
-  "description": "sudolang",
-  "version": "1.0.10",
+  "description": "SudoLang support for VS Code",
+  "version": "2.0.0-rc.1",
   "engines": {
-    "vscode": "^1.76.0"
+    "vscode": "^1.91.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paralleldrive/sudolang-llm-support.git"
   },
   "categories": [
     "Programming Languages"
   ],
+  "activationEvents": [
+    "onLanguage:sudolang"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "build": "vsce package"
+  },
   "contributes": {
     "languages": [
       {
@@ -31,5 +45,11 @@
         "path": "./syntaxes/sudolang.tmLanguage.json"
       }
     ]
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.91.0",
+    "@types/node": "14.x",
+    "typescript": "^4.3.2",
+    "vsce": "^2.15.0"
   }
 }

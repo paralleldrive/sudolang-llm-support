@@ -1,13 +1,13 @@
 # SudoLang
 
-SudoLang is a programming language designed to collaborate with AI language models including ChatGPT, Bing Chat, Anthropic Claude, and Google Bard. It is designed to be easy to learn and use. It is also very expressive and powerful.
+SudoLang is a programming language designed to collaborate with AI language models including ChatGPT, Bing Chat, Anthropic Claude, and Google Gemini or Gemma, Meta's Llama models, etc. It is designed to be easy to learn and use. It is also very expressive and powerful.
 
 All sufficiently advanced language models understand it without any special prompting. _You do not need to paste the SudoLang specification before using SudoLang with your favorite AI._
 
 ## SudoLang Features
 
 - **Natural language constraint-based programming.** Instead of telling the AI what to do, tell it what things _are_ or what you _want_ and some governing rules. Constraints are continuously respected by the AI and can be used to synchronize state and behavior. Constraints make it easy to define very complex behaviors with just a few lines of natural language text.
-- **Interfaces** for defining the structure and behavior of your program.
+- **Interfaces** for defining the structure and behavior of your program. Interfaces are typed, but types can often be inferred. Interfaces are modular, reusable and composable.
 - **`/commands`** for defining a chat or programmatic interface for your program interactions.
 - **Semantic Pattern Matching**. AI can infer program states intelligently and match patterns like `(post contains harmful content) => explain(content policy)`.
 - **Referential omnipotence.** You do not need to explicitly define most functions. The AI will infer them for you.
@@ -27,6 +27,16 @@ Please read the [SudoLang documentation](sudolang.sudo.md) for more information 
 
 Examples can be found in the [examples](examples) folder.
 
+## Getting Started
+
+1. Clone the SudoLang repository from GitHub.
+2. Make sure the `code` command is in your path.
+  1. CMD+SHIFT+P
+  2. Type `code` - don't press enter.
+  3. Select "Shell command: Install 'code' in PATH."
+3. Open up a terminal in the project root folder.
+4. `code --install-extension sudolang-llm-support-2.0.0-rc.1.vsix`
+5. Open `syntaxes/syntax-test.sudo`. It should be syntax-highlighted.
 
 ## Learning SudoLang
 
@@ -41,7 +51,10 @@ Examples can be found in the [examples](examples) folder.
 * [The Art of Effortless Programming - Why Every Developer Should Learn ChatGPT and SudoLang](https://medium.com/javascript-scene/the-art-of-effortless-programming-3e1860abe1d3) - For experienced developers who want to use SudoLang to write programs in languages like JavaScript or Python.
 * [Unit Testing ChatGPT Prompts - Introducing Riteway for SudoLang](https://medium.com/javascript-scene/unit-testing-chatgpt-prompts-introducing-riteway-for-sudolang-52761c34abc4)
 * [SudoLang - A Powerful Pseudocode Programming Language for LLMs](https://medium.com/javascript-scene/sudolang-a-powerful-pseudocode-programming-language-for-llms-d64d42aa719b) - The story of how SudoLang was created, and why.
+* [Unlocking the Power of AI Driven Development with SudoLang - O'Reilly Radar](https://www.oreilly.com/radar/unlocking-the-power-of-ai-driven-development-with-sudolang/)
 
 ### Video
 
-[![AI Driven Development with SudoLang - Autodux](http://img.youtube.com/vi/2jqPJsPuf9E/0.jpg)](http://www.youtube.com/watch?v=2jqPJsPuf9E "AI Driven Development with SudoLang - Autodux")
+* [AI Driven Development with SudoLang - Autodux](https://www.youtube.com/watch?v=2jqPJsPuf9E)
+* [SudoLang on the DevTools.fm Podcast](https://www.youtube.com/watch?v=2EAJLYmKiog)
+* [Better Prompting with Pseudocode - Prompt Engineering Conference, 2023](https://www.youtube.com/watch?v=TADrrG6Fhjk)

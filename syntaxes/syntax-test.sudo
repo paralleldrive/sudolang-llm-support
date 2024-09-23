@@ -1,0 +1,191 @@
+# Syntax Tests
+
+A quick cheat sheet for SudoLang syntax.
+
+## Interfaces
+
+DisplayTheme {
+  mode: "light" | "dark"
+  name: String
+  parameters{} // each theme can have different sets of parameters
+  permissions[]
+}
+
+UserPreferences {
+  displayTheme
+}
+
+User {
+  id: String
+  displayName
+  preferences
+}
+
+## Constraints
+
+constraint: can be specified inline or in block form
+
+Constraints {
+  A constraint
+  Another constraint
+}
+
+
+## Function Definitons
+
+// You can define an inferred function with the `fn` or `function` keywords:
+fn foo();
+function bar();
+
+// You can also define them with function bodies:
+fn foo() {
+  Constraints {
+    a constraint
+  }
+
+  for each (foo) bar()
+  while (!done) work()
+}
+
+// Functions with blocks can omit the fn or function keyword:
+anotherFunction() {
+  require user to be signed in
+}
+
+
+### Function Modifiers
+
+function simple():modifier = value
+
+function complex():nestedModifier={key: "value"}
+
+// You can shape function behavior at call time.
+doSomethingMultiLine():{
+  // we can freely mix variable assignments and constraints:
+  format = numbered markdown list
+  lineLength = concise
+  this is a constraint
+  this is another constraint
+}
+
+## Object Literals
+
+updateUser({ id: "123", name: "Pup" })
+
+
+## Template Strings
+
+"foo $bar"
+`foo $bar`
+
+Note: Avoid single quotes for strings, because they are used as apostraphies in natural language, and they can break the syntax hightlighting badly.
+
+// nested template strings:
+["foo $bar"]
+
+// nested tempalate strings with objects:
+{
+  name: "Hello, $name"
+}
+
+## Arrays and Objects
+
+// arrays
+[1, 2, 3]
+
+// nested arrays
+[
+  {
+    foo: "bar"
+  },
+  [123]
+]
+
+## Comments
+
+// a comment
+
+/*
+  a block comment
+*/
+fn bar(/* a block comment in parameter position */) {
+  // a function-nested comment
+  a constraint
+  /*
+    function-nested block comments (not recommended due to token consumption, but available if you really need it)
+  */
+  "return $template" // end of line comment
+}
+
+## Operators
+
+Note: Most operators don't usually get special syntax highlighting, but they are still important to include.
+
+// Logical Operators
+isAdult = age >= 18
+canVote = isAdult && isCitizen
+canDrink = isAdult || hasParentalConsent
+uniqueFeature = hasFeatureA xor hasFeatureB
+isUnavailable = !inStock
+
+
+// Complex logical expression
+isEligible = (age >= 21) && (hasValidID) && ((hasCreditCard) || (hasCash)) && !(isBlacklisted)
+
+// Math Operators
+sum = a + b
+difference = x - y
+product = length * width
+quotient = total / count
+power = base ^ exponent
+remainder = 17 % 5
+
+// Complex math expression
+result = ((10 + 5) * 3 - (20 / 4)) ^ 2 % 7
+
+// Set Operators
+commonFruits = tropicalFruits cap localFruits
+allFruits = tropicalFruits cup localFruits
+
+// Combining different operators
+finalScore = (baseScore + bonusPoints) * difficultyMultiplier
+isWinner = (finalScore > highScore) && !isDisqualified
+
+// Assignment with operation
+counter = 0
+counter += 1  // Increment
+total -= discount  // Decrement
+price *= taxRate  // Multiply and assign
+share /= numberOfPeople  // Divide and assign
+
+// Function nesting
+fn foo() {
+  counter = 0
+  counter += 1  // Increment
+  total -= discount  // Decrement
+  price *= taxRate  // Multiply and assign
+  share /= numberOfPeople  // Divide and assign
+}
+
+// Comparison Operators
+isEqual = a == b
+isNotEqual = x != y
+isGreater = score > threshold
+isLessOrEqual = quantity <= maxLimit
+
+// Ternary if/else
+access = if (age >= 18 && isMember) "granted" else "denied"
+
+// Pipe operator for function composition
+processedData = rawData |> normalize |> filter |> sort
+
+
+## Disallowed Keywords
+
+Should generate a warning for disallowed keywords.
+
+class Foo extends Bar {
+  constructor() {
+    super()
+  }
+}

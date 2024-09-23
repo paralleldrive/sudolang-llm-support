@@ -115,8 +115,8 @@ Given: "given $situation, $when"
 Test Case: "$Given, when $action, should $outcome"
 
 testCases() {
-  !Express the user story in natural language. Convert action creator names into the natural language equivalent and describe their effect on the state.
-  !Without comment. !Output ONLY the return value:
+  Express the user story in natural language. Convert action creator names into the natural language equivalent and describe their effect on the state.
+  Without comment. Output ONLY the return value:
   return generateRequirements() |> update(Dux) |> /save
 }
 
