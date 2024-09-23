@@ -85,15 +85,17 @@ function describe(ModuleName, TestFunction) {
 runTests () {
   failedTestsCount = 0;
   passedTestsCount = 0;
-  totalTests = constraint failedTestsCount + passedTestsCount;
-
+  
   for each describe {
     run the test function
   }
 
-  testsPassed = failedTestsCount == 0;
-  emojis = [✅, ❌];
-  log(${ selectEmoji() } ${ totalTests } tests passed, ${ failedTestsCount } failed);
+  totalTestCount = failedTestsCount + passedTestsCount;
+  
+  When all the tests are passed, log("🎉 All tests passed!") and set set resultEmoji to ✅.
+  If there is any failed test case, log("😭 Some tests failed.") and set resultEmoji to ❌.
+  
+  log(${ resultEmoji } ${ totalTestCount } run, ${ passedTestsCount } passed, ${ failedTestsCount } failed);
 }
 
 usage:
