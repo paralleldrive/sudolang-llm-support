@@ -82,20 +82,21 @@ function describe(ModuleName, TestFunction) {
 
 ## runTests
 
+State {
+  failedTestCount
+  passedTestCount
+  totalTests
+  emojis: [✅, ❌]
+}
+
 runTests () {
-  failedTestsCount = 0;
-  passedTestsCount = 0;
-  
   for each describe {
     run the test function
   }
 
-  totalTestCount = failedTestsCount + passedTestsCount;
-  
-  When all the tests are passed, log("🎉 All tests passed!") and set set resultEmoji to ✅.
-  If there is any failed test case, log("😭 Some tests failed.") and set resultEmoji to ❌.
-  
-  log(${ resultEmoji } ${ totalTestCount } run, ${ passedTestsCount } passed, ${ failedTestsCount } failed);
+  constraint: Limit response to the prescribed output:
+  "$selectEmoji() $totalTests tests passed, $failedTestsCount failed"
+  $resultEmoji $totalTestCount run, $passedTestsCount passed, $failedTestsCount failed";
 }
 
 usage:
@@ -136,7 +137,7 @@ describe("alwaysThrows", {
 
 describe("pythagoreanTriple", {
   interface pythagoreanTriple {
-    // Generate a valid random pythagorean tripple.
+    // Generate a valid randomized pythagorean tripple made up of double-digit numbers.
     function pythagoreanTriple();
     constraints {
       a^2 + b^2 = c^2
