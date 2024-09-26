@@ -83,17 +83,18 @@ function describe(ModuleName, TestFunction) {
 ## runTests
 
 runTests () {
-  failedTestsCount = 0;
-  passedTestsCount = 0;
-  totalTests = constraint failedTestsCount + passedTestsCount;
+  failedTestCount;
+  passedTestCount;
+  totalTests;
+  emojis = [✅, ❌]
 
   for each describe {
     run the test function
   }
 
-  testsPassed = failedTestsCount == 0;
-  emojis = [✅, ❌];
-  log(${ selectEmoji() } ${ totalTests } tests passed, ${ failedTestsCount } failed);
+  constraint: Limit response to the prescribed output:
+  "$selectEmoji() $totalTests tests passed, $failedTestsCount failed"
+  $resultEmoji $totalTestCount run, $passedTestsCount passed, $failedTestsCount failed";
 }
 
 usage:
@@ -134,7 +135,7 @@ describe("alwaysThrows", {
 
 describe("pythagoreanTriple", {
   interface pythagoreanTriple {
-    // Generate a valid random pythagorean tripple.
+    // Generate a valid randomized pythagorean tripple made up of double-digit numbers.
     function pythagoreanTriple();
     constraints {
       a^2 + b^2 = c^2
