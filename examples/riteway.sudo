@@ -82,14 +82,12 @@ function describe(ModuleName, TestFunction) {
 
 ## runTests
 
-State {
-  failedTestCount
-  passedTestCount
-  totalTests
-  emojis: [✅, ❌]
-}
-
 runTests () {
+  failedTestCount;
+  passedTestCount;
+  totalTests;
+  emojis = [✅, ❌]
+
   for each describe {
     run the test function
   }
