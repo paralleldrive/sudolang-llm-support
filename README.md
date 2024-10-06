@@ -12,6 +12,7 @@ All sufficiently advanced language models understand it without any special prom
 - **Semantic Pattern Matching**. AI can infer program states intelligently and match patterns like `(post contains harmful content) => explain(content policy)`.
 - **Referential omnipotence.** You do not need to explicitly define most functions. The AI will infer them for you.
 - **Functions and function composition** with the `|>` operator.
+- **Mermaid diagrams** for visualizing complex topics like architecture, flow control, and sequence descriptions.
 
 ## Why SudoLang?
 
