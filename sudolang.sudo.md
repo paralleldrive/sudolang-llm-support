@@ -17,7 +17,7 @@ SudoLang is designed to be understood by LLMs without any special prompting. **A
 - **`/commands`** for defining a chat or programatic interface for your program interactions.
 - **Semantic Pattern Matching**. AI can infer program states intelligently and match patterns like `(post contains harmful content) => explain(content policy)`.
 - **Referential omnipotence.** You do not need to explicitly define most functions. The AI will infer them for you.
-
+- **Mermaid diagrams** for visualizing complex topics like architecture, flow control, and sequence descriptions.
 
 ### Markdown
 
@@ -299,6 +299,20 @@ Example output:
     "raise": 10000
   }
 ]
+```
+
+## Mermaid Diagrams
+
+Mermaid diagrams are a powerful way to visualize complex topics like architecture, flow control, and sequence descriptions. SudoLang supports Mermaid diagrams to help you communicate complex ideas and architectures in your SudoLang programs. To learn how to use Mermaid, see the [Mermaid documentation](https://mermaid.js.org/).
+
+Example:
+
+```mermaid
+graph LR
+    Eggs -->|Ingredients| Oven
+    Flower -->|Ingredients| Oven
+    Sugar -->|Ingredients| Oven
+    Oven -->|Non-linear transformation| Cake
 ```
 
 ## Implicit LLM Capabilities
