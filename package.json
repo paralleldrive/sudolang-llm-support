@@ -21,7 +21,8 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "build": "vsce package"
+    "build": "vsce package",
+    "install": "code --install-extension sudolang-llm-support-*.vsix"
   },
   "contributes": {
     "languages": [
