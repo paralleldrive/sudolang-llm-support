@@ -65,6 +65,16 @@ Foo {
 }
 ```
 
+## Options
+
+SudoLang supports various options to customize the behavior of your program. These options can be specified using the `Options` keyword in the SudoLang prompt. Here are some examples:
+
+```SudoLang
+Options {
+  depth: 1..10|String
+}
+```
+
 Because it's an LLM, many functions can be automagically inferred. Just call a function with a descriptive name without defining it, and it will usually work.
 
 ---

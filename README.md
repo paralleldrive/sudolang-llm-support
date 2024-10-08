@@ -13,6 +13,7 @@ All sufficiently advanced language models understand it without any special prom
 - **Referential omnipotence.** You do not need to explicitly define most functions. The AI will infer them for you.
 - **Functions and function composition** with the `|>` operator.
 - **Mermaid diagrams** for visualizing complex topics like architecture, flow control, and sequence descriptions.
+- **Options** for customizing the behavior of your program. See the [example](examples/reflective-thought-composition.sudo).
 
 ## Why SudoLang?
 
