@@ -68,7 +68,7 @@ access = if (age >= 18 && isMember) "granted" else "denied"
 
 All common math operators are supported, including the following:
 
-`+`, `-`, `*`, `/`, `^` (exponent), `%` (remainder), `cap` (`�`) and `cup` (`�`)
+`+`, `-`, `*`, `/`, `^` (exponent), `%` (remainder), `cap` (`∩`) and `cup` (`∪`)
 
 ### Commands
 
