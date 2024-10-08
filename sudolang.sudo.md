@@ -18,6 +18,7 @@ SudoLang is designed to be understood by LLMs without any special prompting. **A
 - **Semantic Pattern Matching**. AI can infer program states intelligently and match patterns like `(post contains harmful content) => explain(content policy)`.
 - **Referential omnipotence.** You do not need to explicitly define most functions. The AI will infer them for you.
 - **Mermaid diagrams** for visualizing complex topics like architecture, flow control, and sequence descriptions.
+- **Options** for customizing the behavior of your program. See the [example](examples/reflective-thought-composition.sudo).
 
 ### Markdown
 
@@ -314,6 +315,44 @@ graph LR
     Sugar -->|Ingredients| Oven
     Oven -->|Non-linear transformation| Cake
 ```
+
+## Options
+
+SudoLang supports various options to customize the behavior of your program. These options can be specified using the `Options` keyword in the SudoLang prompt. Here are some examples:
+
+```SudoLang
+Options {
+  depth: 1..10|String
+}
+```
+
+### Depth Parameter
+
+The depth parameter controls the level of detail in the AI's response. You can specify a numeric value or a descriptive string. Here are some examples:
+
+```SudoLang
+Why is the sky blue? -depth 1
+```
+
+This will result in a simple, short answer. If you want more depth, try:
+
+```SudoLang
+Why is the sky blue? -depth 10
+```
+
+You can also use descriptive strings for the depth parameter:
+
+```SudoLang
+Why is the sky blue? -depth kindergarten
+```
+
+Or
+
+```SudoLang
+Why is the sky blue? -depth PhD
+```
+
+For more details, see the [example](examples/reflective-thought-composition.sudo).
 
 ## Implicit LLM Capabilities
 

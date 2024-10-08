@@ -13,6 +13,9 @@ The module uses emojis to visually represent different phases of the thinking pr
 * ⚖️ **Evaluation** - Consider options
 * 💬 **Response** - Consolidate previous insights, integrate, synthesize, and return a well-rounded response
 
+## Options
+
+The RTC module supports various options to customize the AI's responses. Use the `/help` command for details.
 
 ## Installation
 
