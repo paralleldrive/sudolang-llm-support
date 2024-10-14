@@ -30,7 +30,7 @@
       "patterns": [
         {
           "name": "keyword.control.sudolang",
-          "match": "\\b(ask|case|concat|constraint|constraints|contains|convert|continue|count|default|defaults|describe|else|emit|empty|error|escape|every|exists|explain|filter|find|first|flatMap|flatten|for each|function|fn|groupBy|if|in|includes|interface|interpolate|intersection|join|list|log|loop|map|match|max|merge|min|normalize|orderBy|otherwise|pick|pluck|range|replace|require|requirements|reverse|revise|select|skip|slice|some|sort|sortBy|split|take|takeLast|takeLatest|takeUntil|takeWhile|throw|transpile|trim|union|unique|warn|warnings|where|while|wrap|zip)\\b"
+          "match": "\\b(ask|case|concat|constraint|constraints|contains|continue|convert|count|default|defaults|describe|else|emit|empty|error|escape|every|exists|explain|filter|find|first|flatMap|flatten|fn|for each|function|groupBy|if|in|includes|interface|interpolate|intersection|join|list|log|loop|map|match|max|merge|min|normalize|orderBy|otherwise|pick|pluck|range|replace|require|requirements|reverse|revise|select|skip|slice|some|sort|sortBy|split|take|takeLast|takeLatest|takeUntil|takeWhile|throw|transpile|trim|union|unique|warn|warnings|where|while|wrap|zip)\\b"
         },
         {
           "name": "keyword.commands.sudolang",
