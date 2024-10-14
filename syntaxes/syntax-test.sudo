@@ -144,8 +144,11 @@ remainder = 17 % 5
 result = ((10 + 5) * 3 - (20 / 4)) ^ 2 % 7
 
 // Set Operators
-commonFruits = tropicalFruits cap localFruits
-allFruits = tropicalFruits cup localFruits
+commonFruits = tropicalFruits intersection localFruits
+allFruits = tropicalFruits union localFruits
+
+// Note: The `cup` and `cap` operators are deprecated in favor of `union` and `intersection` due to instability in Claude 3.5.
+
 
 // Combining different operators
 finalScore = (baseScore + bonusPoints) * difficultyMultiplier

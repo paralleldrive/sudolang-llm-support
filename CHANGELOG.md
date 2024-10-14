@@ -11,6 +11,10 @@
 
 - Updated [Robot](examples/robot.sudo) to improve command dispatching success rate and give the robot a more human-like personality and emotes.
 
+### Deprecated
+
+- The `cup` and `cap` operators are deprecated in favor of `union` and `intersection` due to instability in Claude 3.5. The new `union` and `intersection` keywords were tested in GPT-4o, Claude 3.5, and Llama 3.1 with 100% accuracy.
+
 ## SudoLang v1.0.9 -> v1.0.10
 
 ### Added
