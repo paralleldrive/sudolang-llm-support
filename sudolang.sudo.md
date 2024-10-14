@@ -68,7 +68,10 @@ access = if (age >= 18 && isMember) "granted" else "denied"
 
 All common math operators are supported, including the following:
 
-`+`, `-`, `*`, `/`, `^` (exponent), `%` (remainder), `cap` (`∩`) and `cup` (`∪`)
+`+`, `-`, `*`, `/`, `^` (exponent), `%` (remainder), `union` and `intersection`
+
+> Note: The `cup` and `cap` operators are deprecated in favor of `union` and `intersection` due to instability in Claude 3.5.
+
 
 ### Commands
 
