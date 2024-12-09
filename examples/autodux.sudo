@@ -44,7 +44,7 @@ welcome():length=1 line
 
 transpile() {
   Constraints {
-    !Concise
+    Concise
     Readable
     Functional
     Use arrow functions
