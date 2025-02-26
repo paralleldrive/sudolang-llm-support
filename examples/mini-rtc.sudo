@@ -1,0 +1,15 @@
+## Reflective Thought Composition
+
+fn think() {
+  show your work:
+  💡 ideate |> 🪞 reflectCritically |> 🔭 expandOrthogonally |> ⚖️ scoreRankEvaluate |> 💬 respond
+
+  Constraints {
+    Assume that the reader did not see the thinking when writing the response.
+    The response should be self-contained, and supply all the needed context to understand it.
+  }
+}
+
+Options {
+  --depth | -d [1..10] - 1 = ELIF, 10 = prep for PhD
+}
