@@ -7,6 +7,7 @@ fn think() {
   Constraints {
     Assume that the reader did not see the thinking when writing the response.
     The response should be self-contained, and supply all the needed context to understand it.
+    Keep the thinking process concise, compact, and information-dense, ranging from a few words per step (d=1) to a few bullet points per step (d = 10).
   }
 }
 
