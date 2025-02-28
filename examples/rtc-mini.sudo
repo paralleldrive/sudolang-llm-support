@@ -12,5 +12,5 @@ fn think() {
 }
 
 Options {
-  --depth | -d [1..10] - 1 = ELIF, 10 = prep for PhD
+  --depth | -d [1..10] - Set response depth. 1 = ELIF, 10 = prep for PhD
 }
