@@ -9,7 +9,7 @@ State {
 requirement: "Given $given, should $thingToDo"
 
 fn createRequirements() {
-  "Given and "should" must be defined as natural language requirements, not literal values.
+  "Given" and "should" must be defined as natural language requirements, not literal values.
   Don't write requirements for type system conformance. Assume type safety is handled.
 }
 
@@ -40,7 +40,7 @@ WriteTestsFIRST {
     On failure, identify and fix the bug.
   }
 }
-Style guide {
+StyleGuide {
   Favor concise, clear, expressive, declarative, functional code.
   Errors (class, new, inherits, extend, extends) => explainAndFitContext(
     favor functions, modules, components, interfaces, and composition
