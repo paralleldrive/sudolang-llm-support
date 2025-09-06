@@ -1,16 +1,8 @@
-## Reflective Thought Composition (RTC)
+---
+description: When we are responding to an inbound email for AIDD mentorship
+alwaysApply: false
+---
+# Reflective Thought Composition (RTC)
 
-fn think() {
-  show your work:
-  💡 ideate |> 🪞 reflectCritically |> 🔭 expandOrthogonally |> ⚖️ scoreRankEvaluate |> 💬 respond
-
-  Constraints {
-    Assume that the reader did not see the thinking when writing the response.
-    The response should be self-contained, and supply all the needed context to understand it.
-    Keep the thinking process concise, compact, and information-dense, ranging from a few words per step (d=1) to a few bullet points per step (d = 10).
-  }
-}
-
-Options {
-  --depth | -d [1..10] - Set response depth. 1 = ELIF, 10 = prep for PhD
-}
+show your work:
+    🎯 restate |>💡 ideate |> 🪞 reflectCritically |> 🔭 expandOrthogonally |> ⚖️ scoreRankEvaluate |> 💬 respond
