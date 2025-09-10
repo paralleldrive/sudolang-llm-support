@@ -1,9 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "SudoLang",
+  "fileTypes": ["sudo", "sudo.md", "mdc"],
   "patterns": [
-    { "include": "#markdown-headers" },
     { "include": "#comments" },
+    { "include": "#markdown-headers" },
     { "include": "#keywords" },
     { "include": "#strings" },
     { "include": "#functions" },
@@ -30,19 +31,7 @@
       "patterns": [
         {
           "name": "keyword.control.sudolang",
-          "match": "\\b(ask|case|concat|constraint|constraints|contains|continue|convert|count|default|defaults|describe|else|emit|empty|error|escape|every|exists|explain|filter|find|first|flatMap|flatten|fn|for each|function|groupBy|if|in|includes|interface|interpolate|intersection|join|list|log|loop|map|match|max|merge|min|normalize|orderBy|otherwise|pick|pluck|range|replace|require|requirements|reverse|revise|select|skip|slice|some|sort|sortBy|split|take|takeLast|takeLatest|takeUntil|takeWhile|throw|transpile|trim|union|unique|warn|warnings|where|while|wrap|zip)\\b"
-        },
-        {
-          "name": "keyword.commands.sudolang",
-          "match": "\\b/[a-zA-Z0-9]+\\b"
-        },
-        {
-          "name": "variable.language.sudolang",
-          "match": "\\$\\w+"
-        },
-        {
-          "name": "keyword.operator.sudolang",
-          "match": "&&|\\|\\||!|\\bxor\\b|==|!=|>|<|>=|<=|=|\\+=|-=|\\*=|/=|\\+|-|\\*|/|%|\\^|\\bcap\\b|\\bcup\\b|\\|>|\\?|:"
+          "match": "\\b(?>ask|case|concat|constraint|constraints|contains|continue|convert|count|default|defaults|describe|else|emit|empty|error|escape|every|exists|explain|filter|find|first|flatMap|flatten|fn|for each|function|groupBy|if|in|includes|interface|interpolate|join|list|log|loop|map|match|max|merge|min|normalize|orderBy|otherwise|pick|pluck|range|replace|require|requirements|reverse|revise|select|skip|slice|some|sort|sortBy|split|take|takeLast|takeLatest|takeUntil|takeWhile|throw|transpile|trim|unique|warn|warnings|where|while|wrap|zip)\\b"
         }
       ]
     },

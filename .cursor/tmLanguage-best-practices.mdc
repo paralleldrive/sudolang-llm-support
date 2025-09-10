@@ -1,0 +1,389 @@
+---
+description: Best practices for syntax highlighting
+globs: *.tmLanguage.json
+alwaysApply: false
+---
+# tmLanguage.json Best Practices Guide
+
+TextMate grammars define syntax highlighting rules using regular expressions and scope names. The `.tmLanguage.json` format is the JSON representation of TextMate grammars used by VS Code and its derivatives.
+
+## File Structure
+
+### Basic tmLanguage.json Structure
+
+```json
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "LanguageName",
+  "scopeName": "source.languagename",
+  "fileTypes": ["ext"],
+  "patterns": [
+    { "include": "#main-patterns" }
+  ],
+  "repository": {
+    "main-patterns": {
+      "patterns": [
+      ]
+    }
+  }
+}
+```
+
+## Core Concepts
+
+### 1. Scope Names
+
+Use consistent, hierarchical scope names following TextMate conventions:
+
+**Standard Scope Categories:**
+- `comment` - Comments
+- `constant` - Constants (numbers, booleans, null)
+- `entity` - Entities (function names, class names, tags)
+- `keyword` - Keywords and operators
+- `markup` - Markup languages (headers, lists, etc.)
+- `meta` - Meta information (function signatures, blocks)
+- `storage` - Storage types and modifiers
+- `string` - String literals
+- `support` - Support classes and functions
+- `variable` - Variables and parameters
+
+**Naming Convention Examples:**
+```
+keyword.control.sudolang
+string.quoted.double.sudolang
+entity.name.function.sudolang
+variable.other.sudolang
+comment.line.double-slash.sudolang
+```
+
+### 2. Pattern Types
+
+#### Match Patterns
+For single-line matches:
+```json
+{
+  "name": "keyword.control.sudolang",
+  "match": "\\b(if|else|while|return)\\b"
+}
+```
+
+#### Begin/End Patterns
+For multi-line constructs:
+```json
+{
+  "name": "string.quoted.double.sudolang",
+  "begin": "\"",
+  "end": "\"",
+  "patterns": [
+    {
+      "name": "constant.character.escape.sudolang",
+      "match": "\\\\."
+    }
+  ]
+}
+```
+
+#### Include Patterns
+For referencing repository patterns:
+```json
+{
+  "include": "#comments"
+}
+```
+
+### 3. Captures
+
+Use captures to assign different scopes to parts of a match:
+
+```json
+{
+  "match": "\\b(function)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
+  "captures": {
+    "1": { "name": "storage.type.function.sudolang" },
+    "2": { "name": "entity.name.function.sudolang" },
+    "3": { "name": "punctuation.definition.parameters.begin.sudolang" }
+  }
+}
+```
+
+## Best Practices
+
+### 1. Organization and Structure
+
+**Use Repository for Reusable Patterns:**
+```json
+{
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.sudolang",
+          "match": "(//).*$\\n?",
+          "captures": {
+            "1": { "name": "punctuation.definition.comment.sudolang" }
+          }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        { "include": "#string-double-quoted" },
+        { "include": "#string-template" }
+      ]
+    }
+  }
+}
+```
+
+**Hierarchical Pattern Inclusion:**
+```json
+{
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#strings" },
+    { "include": "#functions" },
+    { "include": "#variables" }
+  ]
+}
+```
+
+### 2. Regular Expression Best Practices
+
+**Word Boundaries:**
+```json
+{
+  "name": "keyword.control.sudolang",
+  "match": "\\b(if|else|while)\\b"
+}
+```
+
+**Escape Special Characters:**
+```json
+{
+  "name": "constant.character.escape.sudolang",
+  "match": "\\\\.|\\\"|\\/\\*|\\*\\/"
+}
+```
+
+**Multi-line Constructs:**
+```json
+{
+  "name": "comment.block.sudolang",
+  "begin": "/\\*",
+  "end": "\\*/"
+}
+```
+
+### 3. Performance Considerations
+
+**Order Patterns by Specificity:**
+Place more specific patterns before general ones:
+```json
+{
+  "patterns": [
+    { "include": "#string-template" },
+    { "include": "#string-quoted" },
+    { "include": "#keywords" },
+    { "include": "#identifiers" }
+  ]
+}
+```
+
+**Avoid Catastrophic Backtracking:**
+```json
+{
+  "name": "variable.assignment.sudolang",
+  "match": "\\b(?>\\w+)\\s*="
+}
+```
+
+Using atomic groups `(?>...)` or possessive quantifiers `\\w++` prevents backtracking and improves performance.
+
+**Oniguruma Regex Features:**
+- Atomic groups `(?>...)` are supported for preventing backtracking
+- Possessive quantifiers `*+`, `++`, `?+` are supported (equivalent to atomic groups)
+- Lookbehind assertions `(?<=...)` and `(?<!...)` are supported but must have fixed length (no unbounded quantifiers like `*` or `+`)
+- Use specific character classes and word boundaries for optimal performance
+
+### 4. Language-Specific Features
+
+**Function Definitions with Lookbehind:**
+```json
+{
+  "name": "meta.function.sudolang",
+  "begin": "\\b(function|fn)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()?",
+  "beginCaptures": {
+    "1": { "name": "storage.type.function.sudolang" },
+    "2": { "name": "entity.name.function.sudolang" },
+    "3": { "name": "punctuation.definition.parameters.begin.sudolang" }
+  },
+  "end": "(?<=\\})|(?<=\\))|$",
+  "patterns": [
+    { "include": "#function-parameters" },
+    { "include": "#function-body" }
+  ]
+}
+```
+
+The `end` pattern uses positive lookbehind `(?<=\})` to match only after a closing brace or parenthesis, ensuring the pattern doesn't consume the delimiter.
+
+**Variable Interpolation:**
+```json
+{
+  "name": "string.template.sudolang",
+  "begin": "`",
+  "end": "`",
+  "patterns": [
+    {
+      "name": "variable.other.sudolang",
+      "match": "\\$[a-zA-Z_][a-zA-Z0-9_]*"
+    },
+    {
+      "name": "constant.character.escape.sudolang",
+      "match": "\\\\."
+    }
+  ]
+}
+```
+
+### 5. Embedded Languages
+
+For languages that embed other languages:
+```json
+{
+  "begin": "```(javascript|js)",
+  "beginCaptures": {
+    "0": { "name": "markup.fenced_code.block.markdown" },
+    "1": { "name": "fenced_code.block.language.markdown" }
+  },
+  "end": "```",
+  "endCaptures": {
+    "0": { "name": "markup.fenced_code.block.markdown" }
+  },
+  "name": "meta.embedded.block.javascript",
+  "contentName": "source.js"
+}
+```
+
+### 6. Testing and Validation
+
+**Test Cases to Include:**
+- Edge cases (empty strings, nested constructs)
+- Complex expressions
+- Mixed syntax scenarios
+- Performance with large files
+
+**Validation Tools:**
+- VS Code's built-in grammar inspector
+- TextMate grammar test suites
+- Online regex testers for pattern validation
+
+## Extension Configuration
+
+### package.json Setup
+
+```json
+{
+  "contributes": {
+    "languages": [
+      {
+        "id": "sudolang",
+        "aliases": ["SudoLang", "sudolang"],
+        "extensions": [".sudo", ".sudo.md", ".mdc"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sudolang",
+        "scopeName": "source.sudolang",
+        "path": "./syntaxes/sudolang.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.javascript": "javascript",
+          "meta.embedded.block.json": "json"
+        }
+      }
+    ]
+  }
+}
+```
+
+### Language Configuration
+
+Create `language-configuration.json`:
+```json
+{
+  "comments": {
+    "lineComment": "//",
+    "blockComment": ["/*", "*/"]
+  },
+  "brackets": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
+  "autoClosingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""],
+    ["`", "`"]
+  ],
+  "surroundingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""],
+    ["`", "`"]
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\s*//\\s*#region",
+      "end": "^\\s*//\\s*#endregion"
+    }
+  }
+}
+```
+
+## Common Pitfalls
+
+### 1. Scope Name Inconsistencies
+- Always use your language suffix (e.g., `.sudolang`)
+- Follow TextMate naming conventions
+- Be consistent across all patterns
+
+### 2. Regex Performance Issues
+- Avoid nested quantifiers: `(a+)+`
+- Use specific character classes and word boundaries instead of complex patterns
+- Test with large files
+
+### 3. Pattern Ordering
+- Specific patterns should come before general ones
+- Comments often need to be first to prevent interference
+- Test pattern precedence thoroughly
+
+### 4. Incomplete Coverage
+- Handle edge cases (empty files, malformed syntax)
+- Test with real-world code samples
+- Ensure all language constructs are covered
+
+## Development Workflow
+
+1. **Start Simple:** Begin with basic patterns (comments, strings, keywords)
+2. **Iterate:** Add complexity gradually
+3. **Test Frequently:** Use sample files to validate highlighting
+4. **Profile Performance:** Test with large files
+5. **Document:** Maintain clear documentation of pattern purposes
+6. **Version Control:** Track changes and test regressions
+
+## Resources
+
+- [TextMate Language Grammars](https://macromates.com/manual/en/language_grammars)
+- [VS Code Syntax Highlight Guide](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
+- [Scope Naming Conventions](https://www.sublimetext.com/docs/scope_naming.html)
+- [Regular Expression Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+
+---
+
+This guide provides a foundation for creating robust syntax highlighting. Remember to test thoroughly and iterate based on real-world usage patterns.

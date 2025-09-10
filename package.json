@@ -1,14 +1,19 @@
 {
   "name": "sudolang-llm-support",
   "displayName": "SudoLang LLM Support",
-  "description": "SudoLang support for VS Code",
-  "version": "2.0.0-rc.1",
+  "description": "SudoLang can boost prompt performance with typed interfaces, constraints, and composition. Adds SudoLang syntax highlighting and language services for .sudo, .sudo.md, and .mdc files.",
+  "version": "2.0.0-rc.2",
+  "icon": "images/sudolang_icon_128.png",
   "engines": {
     "vscode": "^1.91.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/paralleldrive/sudolang-llm-support.git"
+  },
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
   },
   "categories": [
     "Programming Languages"
@@ -34,7 +39,8 @@
         ],
         "extensions": [
           ".sudo",
-          ".sudo.md"
+          ".sudo.md",
+          ".mdc"
         ],
         "configuration": "./language-configuration.json"
       }

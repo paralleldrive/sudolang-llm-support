@@ -1,5 +1,9 @@
 # SudoLang
 
+<p align="center">
+  <img src="images/sudolang-logo.png" alt="SudoLang Logo" width="200"/>
+</p>
+
 SudoLang is a programming language designed to collaborate with AI language models including ChatGPT, Bing Chat, Anthropic Claude, and Google Gemini or Gemma, Meta's Llama models, etc. It is designed to be easy to learn and use. It is also very expressive and powerful.
 
 All sufficiently advanced language models understand it without any special prompting. _You do not need to paste the SudoLang specification before using SudoLang with your favorite AI._
@@ -14,6 +18,18 @@ All sufficiently advanced language models understand it without any special prom
 - **Functions and function composition** with the `|>` operator.
 - **Mermaid diagrams** for visualizing complex topics like architecture, flow control, and sequence descriptions.
 - **Options** for customizing the behavior of your program. See the [example](examples/reflective-thought-composition.sudo).
+
+## Syntax Highlighting
+
+![SudoLang Syntax Highlighting](images/screenshot.png)
+
+The SudoLang extension provides rich syntax highlighting for `.sudo`, `.sudo.md`, and `.mdc` files with support for:
+- Keywords and control structures
+- String literals and templates
+- Comments and documentation
+- Function definitions and interfaces
+- Variable interpolation
+- Markdown integration
 
 ## Why SudoLang?
 
