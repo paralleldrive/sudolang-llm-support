@@ -2,7 +2,8 @@
   "name": "sudolang-llm-support",
   "displayName": "SudoLang LLM Support",
   "description": "SudoLang can boost prompt performance with typed interfaces, constraints, and composition. Adds SudoLang syntax highlighting and language services for .sudo, .sudo.md, and .mdc files.",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0",
+  "publisher": "paralleldrive",
   "icon": "images/sudolang_icon_128.png",
   "engines": {
     "vscode": "^1.91.0"
